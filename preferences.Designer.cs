@@ -2,482 +2,188 @@
 {
     partial class preferences
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            button1 = new Button();
-            label2 = new Label();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            label3 = new Label();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            button10 = new Button();
-            label4 = new Label();
-            button11 = new Button();
-            button12 = new Button();
-            button13 = new Button();
-            button15 = new Button();
-            button14 = new Button();
-            label5 = new Label();
-            label6 = new Label();
-            button16 = new Button();
-            button17 = new Button();
-            button18 = new Button();
-            button19 = new Button();
-            button20 = new Button();
-            button21 = new Button();
-            button22 = new Button();
-            button23 = new Button();
-            button24 = new Button();
-            button25 = new Button();
+            mainFlow = new FlowLayoutPanel();
             buttonSave = new Button();
             labelSaveError = new Label();
+            mainFlow.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F);
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(267, 32);
-            label1.TabIndex = 0;
-            label1.Text = "How often do you feel: ";
-            label1.Click += label1_Click;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button1.Location = new Point(23, 91);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 1;
-            button1.Text = "Never";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(23, 54);
-            label2.Name = "label2";
-            label2.Size = new Size(55, 21);
-            label2.TabIndex = 2;
-            label2.Text = "Happy";
-            label2.Click += label2_Click;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button2.Location = new Point(215, 91);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 3;
-            button2.Text = "Often";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button3.Location = new Point(120, 91);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 4;
-            button3.Text = "Sometimes";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button4.Location = new Point(309, 91);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 5;
-            button4.Text = "Frequently";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button5.Location = new Point(412, 91);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 6;
-            button5.Text = "Always";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(23, 135);
-            label3.Name = "label3";
-            label3.Size = new Size(36, 21);
-            label3.TabIndex = 7;
-            label3.Text = "Sad";
-            label3.Click += label3_Click;
-            // 
-            // button6
-            // 
-            button6.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button6.Location = new Point(23, 169);
-            button6.Name = "button6";
-            button6.Size = new Size(75, 23);
-            button6.TabIndex = 8;
-            button6.Text = "Never";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            button7.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button7.Location = new Point(120, 169);
-            button7.Name = "button7";
-            button7.Size = new Size(75, 23);
-            button7.TabIndex = 9;
-            button7.Text = "Sometimes";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            button8.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button8.Location = new Point(215, 169);
-            button8.Name = "button8";
-            button8.Size = new Size(75, 23);
-            button8.TabIndex = 10;
-            button8.Text = "Often";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
-            // 
-            // button9
-            // 
-            button9.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button9.Location = new Point(309, 169);
-            button9.Name = "button9";
-            button9.Size = new Size(75, 23);
-            button9.TabIndex = 11;
-            button9.Text = "Frequently";
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            button10.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button10.Location = new Point(412, 169);
-            button10.Name = "button10";
-            button10.Size = new Size(75, 23);
-            button10.TabIndex = 12;
-            button10.Text = "Always";
-            button10.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(26, 224);
-            label4.Name = "label4";
-            label4.Size = new Size(52, 21);
-            label4.TabIndex = 13;
-            label4.Text = "Angry";
-            label4.Click += label4_Click;
-            // 
-            // button11
-            // 
-            button11.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button11.Location = new Point(22, 271);
-            button11.Name = "button11";
-            button11.Size = new Size(75, 23);
-            button11.TabIndex = 14;
-            button11.Text = "Never";
-            button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            button12.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button12.Location = new Point(120, 271);
-            button12.Name = "button12";
-            button12.Size = new Size(75, 23);
-            button12.TabIndex = 15;
-            button12.Text = "Sometimes";
-            button12.UseVisualStyleBackColor = true;
-            button12.Click += button12_Click;
-            // 
-            // button13
-            // 
-            button13.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button13.Location = new Point(215, 271);
-            button13.Name = "button13";
-            button13.Size = new Size(75, 23);
-            button13.TabIndex = 16;
-            button13.Text = "Often";
-            button13.UseVisualStyleBackColor = true;
-            // 
-            // button15
-            // 
-            button15.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button15.Location = new Point(309, 271);
-            button15.Name = "button15";
-            button15.Size = new Size(75, 23);
-            button15.TabIndex = 17;
-            button15.Text = "Frequently";
-            button15.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            button14.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button14.Location = new Point(412, 271);
-            button14.Name = "button14";
-            button14.Size = new Size(75, 23);
-            button14.TabIndex = 18;
-            button14.Text = "Always";
-            button14.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(22, 311);
-            label5.Name = "label5";
-            label5.Size = new Size(76, 21);
-            label5.TabIndex = 19;
-            label5.Text = "Confused";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(22, 386);
-            label6.Name = "label6";
-            label6.Size = new Size(81, 21);
-            label6.TabIndex = 20;
-            label6.Text = "Frustrated";
-            label6.Click += label6_Click;
-            // 
-            // button16
-            // 
-            button16.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button16.Location = new Point(22, 419);
-            button16.Name = "button16";
-            button16.Size = new Size(75, 23);
-            button16.TabIndex = 21;
-            button16.Text = "Never";
-            button16.UseVisualStyleBackColor = true;
-            // 
-            // button17
-            // 
-            button17.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button17.Location = new Point(22, 348);
-            button17.Name = "button17";
-            button17.Size = new Size(75, 23);
-            button17.TabIndex = 22;
-            button17.Text = "Never";
-            button17.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            button18.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button18.Location = new Point(120, 348);
-            button18.Name = "button18";
-            button18.Size = new Size(75, 23);
-            button18.TabIndex = 23;
-            button18.Text = "Sometimes";
-            button18.UseVisualStyleBackColor = true;
-            // 
-            // button19
-            // 
-            button19.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button19.Location = new Point(120, 419);
-            button19.Name = "button19";
-            button19.Size = new Size(75, 23);
-            button19.TabIndex = 24;
-            button19.Text = "Sometimes";
-            button19.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            button20.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button20.Location = new Point(215, 419);
-            button20.Name = "button20";
-            button20.Size = new Size(75, 23);
-            button20.TabIndex = 25;
-            button20.Text = "Often";
-            button20.UseVisualStyleBackColor = true;
-            // 
-            // button21
-            // 
-            button21.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button21.Location = new Point(215, 348);
-            button21.Name = "button21";
-            button21.Size = new Size(75, 23);
-            button21.TabIndex = 26;
-            button21.Text = "Often";
-            button21.UseVisualStyleBackColor = true;
-            // 
-            // button22
-            // 
-            button22.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button22.Location = new Point(309, 348);
-            button22.Name = "button22";
-            button22.Size = new Size(75, 23);
-            button22.TabIndex = 27;
-            button22.Text = "Frequently";
-            button22.UseVisualStyleBackColor = true;
-            // 
-            // button23
-            // 
-            button23.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button23.Location = new Point(309, 415);
-            button23.Name = "button23";
-            button23.Size = new Size(75, 23);
-            button23.TabIndex = 28;
-            button23.Text = "Frequently";
-            button23.UseVisualStyleBackColor = true;
-            // 
-            // button24
-            // 
-            button24.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button24.Location = new Point(412, 348);
-            button24.Name = "button24";
-            button24.Size = new Size(75, 23);
-            button24.TabIndex = 29;
-            button24.Text = "Always";
-            button24.UseVisualStyleBackColor = true;
-            // 
-            // button25
-            // 
-            button25.Font = new Font("Microsoft Sans Serif", 8.25F);
-            button25.Location = new Point(412, 415);
-            button25.Name = "button25";
-            button25.Size = new Size(75, 23);
-            button25.TabIndex = 30;
-            button25.Text = "Always";
-            button25.UseVisualStyleBackColor = true;
-            // 
-            // buttonSave
-            // 
-            buttonSave.Font = new Font("Microsoft Sans Serif", 8.25F);
-            buttonSave.Location = new Point(680, 415);
-            buttonSave.Name = "buttonSave";
-            buttonSave.Size = new Size(90, 23);
-            buttonSave.TabIndex = 31;
+
+            // ── FLOW PANEL fills the form ──
+            mainFlow.AutoScroll = true;
+            mainFlow.Dock = DockStyle.Fill;
+            mainFlow.FlowDirection = FlowDirection.TopDown;
+            mainFlow.WrapContents = false;
+            mainFlow.Padding = new Padding(20, 10, 20, 10);
+            mainFlow.Name = "mainFlow";
+
+            // ── TITLE ──
+            var title = new Label();
+            title.AutoSize = true;
+            title.Font = new Font("Segoe UI", 18F);
+            title.Text = "How often do you feel:";
+            title.Name = "label1";
+            title.Margin = new Padding(0, 0, 0, 10);
+            mainFlow.Controls.Add(title);
+            label1 = title;
+
+            // ── BUILD EACH EMOTION BLOCK ──
+            BuildBlock("Happy", out button1, out button2, out button3, out button4, out button5,
+                       out happycraving, out happylabel, out sweet1, out sour1, out spicy1, out salty1,
+                       HappyFrequencySelected);
+
+            BuildBlock("Sad", out button6, out button7, out button8, out button9, out button10,
+                       out sadcraving, out sadlabel, out sweet2, out sour2, out spicy2, out salty2,
+                       SadFrequencySelected);
+
+            BuildBlock("Angry", out button11, out button12, out button13, out button14, out button15,
+                       out angrypanel, out angrylabel, out sweet3, out sour3, out spicy3, out salty3,
+                       AngryFrequencySelected);
+
+            BuildBlock("Bored", out button16, out button17, out button18, out button19, out button20,
+                       out boredpanel, out boredlabel, out sweet4, out sour4, out spicy4, out salty4,
+                       BoredFrequencySelected);
+
+            BuildBlock("Stressed", out button21, out button22, out button23, out button24, out button25,
+                       out stressedpanel, out stressedlabel, out sweet5, out sour5, out spicy5, out salty5,
+                       StressedFrequencySelected);
+
+            // ── SAVE ──
             buttonSave.Text = "Save";
-            buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Font = new Font("Microsoft Sans Serif", 9F);
+            buttonSave.Size = new Size(120, 35);
+            buttonSave.Margin = new Padding(0, 20, 0, 5);
             buttonSave.Click += buttonSave_Click;
-            // 
-            // labelSaveError
-            // 
+            mainFlow.Controls.Add(buttonSave);
+
             labelSaveError.AutoSize = true;
             labelSaveError.ForeColor = Color.Red;
-            labelSaveError.Location = new Point(520, 415);
+            labelSaveError.Text = "";
             labelSaveError.Name = "labelSaveError";
-            labelSaveError.Size = new Size(0, 15);
-            labelSaveError.TabIndex = 32;
-            // 
-            // preferences
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            mainFlow.Controls.Add(labelSaveError);
+
+            mainFlow.ResumeLayout(false);
+
+            // ── FORM ──
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button25);
-            Controls.Add(buttonSave);
-            Controls.Add(labelSaveError);
-            Controls.Add(button24);
-            Controls.Add(button23);
-            Controls.Add(button22);
-            Controls.Add(button21);
-            Controls.Add(button20);
-            Controls.Add(button19);
-            Controls.Add(button18);
-            Controls.Add(button17);
-            Controls.Add(button16);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(button14);
-            Controls.Add(button15);
-            Controls.Add(button13);
-            Controls.Add(button12);
-            Controls.Add(button11);
-            Controls.Add(label4);
-            Controls.Add(button10);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(label3);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(label2);
-            Controls.Add(button1);
-            Controls.Add(label1);
+            ClientSize = new Size(800, 600);
+            Controls.Add(mainFlow);
             Name = "preferences";
             Text = "Preferences";
+            Load += preferences_Load;
             ResumeLayout(false);
-            PerformLayout();
         }
 
-        #endregion
+        private void BuildBlock(string emotion,
+            out Button b1, out Button b2, out Button b3, out Button b4, out Button b5,
+            out Panel cravingPanel, out Label cravingLabel,
+            out Button sw, out Button so, out Button sp, out Button sa,
+            EventHandler freqHandler)
+        {
+            // Emotion label
+            var emoLabel = new Label();
+            emoLabel.AutoSize = true;
+            emoLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            emoLabel.Text = emotion;
+            emoLabel.Margin = new Padding(0, 15, 0, 5);
+            mainFlow.Controls.Add(emoLabel);
+
+            // Frequency buttons row
+            var freqPanel = new FlowLayoutPanel();
+            freqPanel.AutoSize = true;
+            freqPanel.FlowDirection = FlowDirection.LeftToRight;
+            freqPanel.Margin = new Padding(0, 0, 0, 5);
+
+            b1 = MakeFreqBtn("Never", freqHandler);
+            b2 = MakeFreqBtn("Sometimes", freqHandler);
+            b3 = MakeFreqBtn("Often", freqHandler);
+            b4 = MakeFreqBtn("Frequently", freqHandler);
+            b5 = MakeFreqBtn("Always", freqHandler);
+
+            freqPanel.Controls.Add(b1); freqPanel.Controls.Add(b2);
+            freqPanel.Controls.Add(b3); freqPanel.Controls.Add(b4);
+            freqPanel.Controls.Add(b5);
+            mainFlow.Controls.Add(freqPanel);
+
+            // Craving panel (hidden by default)
+            cravingPanel = new Panel();
+            cravingPanel.AutoSize = true;
+            cravingPanel.Visible = false;
+            cravingPanel.BorderStyle = BorderStyle.FixedSingle;
+            cravingPanel.Margin = new Padding(0, 5, 0, 5);
+            cravingPanel.Padding = new Padding(10);
+            cravingPanel.MinimumSize = new Size(580, 90);
+
+            cravingLabel = new Label();
+            cravingLabel.AutoSize = true;
+            cravingLabel.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold | FontStyle.Italic);
+            cravingLabel.Text = $"What do you crave when you feel {emotion}?";
+            cravingLabel.Location = new Point(10, 10);
+            cravingPanel.Controls.Add(cravingLabel);
+
+            sw = MakeCravingBtn("Sweet", 10, 50, CravingButtonClick);
+            so = MakeCravingBtn("Sour", 120, 50, CravingButtonClick);
+            sp = MakeCravingBtn("Spicy", 230, 50, CravingButtonClick);
+            sa = MakeCravingBtn("Salty", 340, 50, CravingButtonClick);
+
+            cravingPanel.Controls.Add(sw); cravingPanel.Controls.Add(so);
+            cravingPanel.Controls.Add(sp); cravingPanel.Controls.Add(sa);
+            mainFlow.Controls.Add(cravingPanel);
+        }
+
+        private Button MakeFreqBtn(string text, EventHandler handler)
+        {
+            var btn = new Button();
+            btn.Text = text;
+            btn.Font = new Font("Microsoft Sans Serif", 8.25F);
+            btn.Size = new Size(90, 30);
+            btn.Margin = new Padding(0, 0, 5, 0);
+            btn.UseVisualStyleBackColor = true;
+            btn.Click += handler;
+            return btn;
+        }
+
+        private Button MakeCravingBtn(string text, int x, int y, EventHandler handler)
+        {
+            var btn = new Button();
+            btn.Text = text;
+            btn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            btn.Size = new Size(94, 30);
+            btn.Location = new Point(x, y);
+            btn.UseVisualStyleBackColor = true;
+            btn.Click += handler;
+            return btn;
+        }
+
+        private FlowLayoutPanel mainFlow;
         private Label label1;
-        private Button button1;
-        private Label label2;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Label label3;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Label label4;
-        private Button button11;
-        private Button button12;
-        private Button button13;
-        private Button button15;
-        private Button button14;
-        private Label label5;
-        private Label label6;
-        private Button button16;
-        private Button button17;
-        private Button button18;
-        private Button button19;
-        private Button button20;
-        private Button button21;
-        private Button button22;
-        private Button button23;
-        private Button button24;
-        private Button button25;
+        private Button button1, button2, button3, button4, button5;
+        private Button button6, button7, button8, button9, button10;
+        private Button button11, button12, button13, button14, button15;
+        private Button button16, button17, button18, button19, button20;
+        private Button button21, button22, button23, button24, button25;
         private Button buttonSave;
         private Label labelSaveError;
+        private Panel happycraving; private Label happylabel;
+        private Button sweet1, sour1, spicy1, salty1;
+        private Panel sadcraving; private Label sadlabel;
+        private Button sweet2, sour2, spicy2, salty2;
+        private Panel angrypanel; private Label angrylabel;
+        private Button sweet3, sour3, spicy3, salty3;
+        private Panel boredpanel; private Label boredlabel;
+        private Button sweet4, sour4, spicy4, salty4;
+        private Panel stressedpanel; private Label stressedlabel;
+        private Button sweet5, sour5, spicy5, salty5;
     }
 }

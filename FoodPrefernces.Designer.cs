@@ -28,404 +28,553 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
             radioButton5 = new RadioButton();
-            radioButton6 = new RadioButton();
-            radioButton7 = new RadioButton();
-            radioButton8 = new RadioButton();
-            radioButton9 = new RadioButton();
-            radioButton10 = new RadioButton();
-            radioButton11 = new RadioButton();
-            radioButton12 = new RadioButton();
-            radioButton13 = new RadioButton();
-            radioButton14 = new RadioButton();
-            radioButton15 = new RadioButton();
-            radioButton16 = new RadioButton();
-            radioButton17 = new RadioButton();
-            radioButton18 = new RadioButton();
-            radioButton19 = new RadioButton();
-            radioButton20 = new RadioButton();
-            radioButton21 = new RadioButton();
             button1 = new Button();
+            pnlEmotions = new Panel();
+            panel1 = new Panel();
+            pnlFood3 = new Panel();
+            lblFood3Desc = new Label();
+            lblFood3Name = new Label();
+            pnlFood2 = new Panel();
+            lblFood2Desc = new Label();
+            lblFood2Name = new Label();
+            pnlFood1 = new Panel();
+            lblFood1Desc = new Label();
+            lblFood1Name = new Label();
+            lblRecommended = new Label();
+            pnlEmotionCard = new Panel();
+            lblEmotionName = new Label();
+            lblEmotionEmoji = new Label();
+            pnlHeader = new Panel();
+            label1 = new Label();
+            lblSubtitle = new Label();
+            lblFoodGuide = new Label();
+            btnBack = new Button();
+            tlpEmotions = new TableLayoutPanel();
+            pnlHappy = new Panel();
+            lblNameHappy = new Label();
+            lblEmojiHappy = new Label();
+            pnlSad = new Panel();
+            lblNameSad = new Label();
+            lblEmojiSad = new Label();
+            pnlAngry = new Panel();
+            lblNameAngry = new Label();
+            lblEmojiAngry = new Label();
+            pnlStressed = new Panel();
+            lblEmojiStressed = new Label();
+            lblEmojiStrssed = new Label();
+            pnlBored = new Panel();
+            lblNameBored = new Label();
+            lblEmojiBored = new Label();
+            panel6 = new Panel();
+            lblTitle = new Label();
+            pnlEmotions.SuspendLayout();
+            panel1.SuspendLayout();
+            pnlFood3.SuspendLayout();
+            pnlFood2.SuspendLayout();
+            pnlFood1.SuspendLayout();
+            pnlEmotionCard.SuspendLayout();
+            pnlHeader.SuspendLayout();
+            tlpEmotions.SuspendLayout();
+            pnlHappy.SuspendLayout();
+            pnlSad.SuspendLayout();
+            pnlAngry.SuspendLayout();
+            pnlStressed.SuspendLayout();
+            pnlBored.SuspendLayout();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F);
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(379, 32);
-            label1.TabIndex = 0;
-            label1.Text = "What do you crave when you feel:";
-            label1.Click += label1_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(21, 64);
-            label2.Name = "label2";
-            label2.Size = new Size(42, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Happy";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(21, 129);
-            label3.Name = "label3";
-            label3.Size = new Size(26, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Sad";
-            label3.Click += label3_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(21, 193);
-            label4.Name = "label4";
-            label4.Size = new Size(39, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Angry";
-            label4.Click += label4_Click;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(21, 258);
-            label5.Name = "label5";
-            label5.Size = new Size(58, 15);
-            label5.TabIndex = 4;
-            label5.Text = "Confused";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(21, 325);
-            label6.Name = "label6";
-            label6.Size = new Size(60, 15);
-            label6.TabIndex = 5;
-            label6.Text = "Frustrated";
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(21, 93);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(56, 19);
-            radioButton1.TabIndex = 6;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Sweet";
-            radioButton1.UseVisualStyleBackColor = true;
-            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(105, 93);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(53, 19);
-            radioButton2.TabIndex = 7;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Spicy";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(189, 93);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(49, 19);
-            radioButton3.TabIndex = 8;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Sour";
-            radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(261, 93);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(60, 19);
-            radioButton4.TabIndex = 9;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "Savory";
-            radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton5
             // 
             radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(-326, 154);
+            radioButton5.Location = new Point(-373, 205);
+            radioButton5.Margin = new Padding(3, 4, 3, 4);
             radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(56, 19);
+            radioButton5.Size = new Size(70, 24);
             radioButton5.TabIndex = 10;
             radioButton5.TabStop = true;
             radioButton5.Text = "Sweet";
             radioButton5.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
-            // 
-            radioButton6.AutoSize = true;
-            radioButton6.Location = new Point(105, 157);
-            radioButton6.Name = "radioButton6";
-            radioButton6.Size = new Size(53, 19);
-            radioButton6.TabIndex = 11;
-            radioButton6.TabStop = true;
-            radioButton6.Text = "Spicy";
-            radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            radioButton7.AutoSize = true;
-            radioButton7.Location = new Point(21, 222);
-            radioButton7.Name = "radioButton7";
-            radioButton7.Size = new Size(56, 19);
-            radioButton7.TabIndex = 12;
-            radioButton7.TabStop = true;
-            radioButton7.Text = "Sweet";
-            radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            radioButton8.AutoSize = true;
-            radioButton8.Location = new Point(21, 291);
-            radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(56, 19);
-            radioButton8.TabIndex = 13;
-            radioButton8.TabStop = true;
-            radioButton8.Text = "Sweet";
-            radioButton8.UseVisualStyleBackColor = true;
-            radioButton8.CheckedChanged += radioButton8_CheckedChanged;
-            // 
-            // radioButton9
-            // 
-            radioButton9.AutoSize = true;
-            radioButton9.Location = new Point(21, 157);
-            radioButton9.Name = "radioButton9";
-            radioButton9.Size = new Size(56, 19);
-            radioButton9.TabIndex = 14;
-            radioButton9.TabStop = true;
-            radioButton9.Text = "Sweet";
-            radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton10
-            // 
-            radioButton10.AutoSize = true;
-            radioButton10.Location = new Point(21, 355);
-            radioButton10.Name = "radioButton10";
-            radioButton10.Size = new Size(56, 19);
-            radioButton10.TabIndex = 15;
-            radioButton10.TabStop = true;
-            radioButton10.Text = "Sweet";
-            radioButton10.UseVisualStyleBackColor = true;
-            // 
-            // radioButton11
-            // 
-            radioButton11.AutoSize = true;
-            radioButton11.Location = new Point(105, 222);
-            radioButton11.Name = "radioButton11";
-            radioButton11.Size = new Size(53, 19);
-            radioButton11.TabIndex = 16;
-            radioButton11.TabStop = true;
-            radioButton11.Text = "Spicy";
-            radioButton11.UseVisualStyleBackColor = true;
-            // 
-            // radioButton12
-            // 
-            radioButton12.AutoSize = true;
-            radioButton12.Location = new Point(105, 291);
-            radioButton12.Name = "radioButton12";
-            radioButton12.Size = new Size(53, 19);
-            radioButton12.TabIndex = 17;
-            radioButton12.TabStop = true;
-            radioButton12.Text = "Spicy";
-            radioButton12.UseVisualStyleBackColor = true;
-            // 
-            // radioButton13
-            // 
-            radioButton13.AutoSize = true;
-            radioButton13.Location = new Point(105, 355);
-            radioButton13.Name = "radioButton13";
-            radioButton13.Size = new Size(53, 19);
-            radioButton13.TabIndex = 18;
-            radioButton13.TabStop = true;
-            radioButton13.Text = "Spicy";
-            radioButton13.UseVisualStyleBackColor = true;
-            // 
-            // radioButton14
-            // 
-            radioButton14.AutoSize = true;
-            radioButton14.Location = new Point(189, 157);
-            radioButton14.Name = "radioButton14";
-            radioButton14.Size = new Size(49, 19);
-            radioButton14.TabIndex = 19;
-            radioButton14.TabStop = true;
-            radioButton14.Text = "Sour";
-            radioButton14.UseVisualStyleBackColor = true;
-            // 
-            // radioButton15
-            // 
-            radioButton15.AutoSize = true;
-            radioButton15.Location = new Point(189, 222);
-            radioButton15.Name = "radioButton15";
-            radioButton15.Size = new Size(49, 19);
-            radioButton15.TabIndex = 20;
-            radioButton15.TabStop = true;
-            radioButton15.Text = "Sour";
-            radioButton15.UseVisualStyleBackColor = true;
-            // 
-            // radioButton16
-            // 
-            radioButton16.AutoSize = true;
-            radioButton16.Location = new Point(189, 291);
-            radioButton16.Name = "radioButton16";
-            radioButton16.Size = new Size(49, 19);
-            radioButton16.TabIndex = 21;
-            radioButton16.TabStop = true;
-            radioButton16.Text = "Sour";
-            radioButton16.UseVisualStyleBackColor = true;
-            // 
-            // radioButton17
-            // 
-            radioButton17.AutoSize = true;
-            radioButton17.Location = new Point(189, 355);
-            radioButton17.Name = "radioButton17";
-            radioButton17.Size = new Size(49, 19);
-            radioButton17.TabIndex = 22;
-            radioButton17.TabStop = true;
-            radioButton17.Text = "Sour";
-            radioButton17.UseVisualStyleBackColor = true;
-            // 
-            // radioButton18
-            // 
-            radioButton18.AutoSize = true;
-            radioButton18.Location = new Point(261, 157);
-            radioButton18.Name = "radioButton18";
-            radioButton18.Size = new Size(60, 19);
-            radioButton18.TabIndex = 23;
-            radioButton18.TabStop = true;
-            radioButton18.Text = "Savory";
-            radioButton18.UseVisualStyleBackColor = true;
-            // 
-            // radioButton19
-            // 
-            radioButton19.AutoSize = true;
-            radioButton19.Location = new Point(261, 222);
-            radioButton19.Name = "radioButton19";
-            radioButton19.Size = new Size(60, 19);
-            radioButton19.TabIndex = 24;
-            radioButton19.TabStop = true;
-            radioButton19.Text = "Savory";
-            radioButton19.UseVisualStyleBackColor = true;
-            // 
-            // radioButton20
-            // 
-            radioButton20.AutoSize = true;
-            radioButton20.Location = new Point(261, 291);
-            radioButton20.Name = "radioButton20";
-            radioButton20.Size = new Size(60, 19);
-            radioButton20.TabIndex = 25;
-            radioButton20.TabStop = true;
-            radioButton20.Text = "Savory";
-            radioButton20.UseVisualStyleBackColor = true;
-            // 
-            // radioButton21
-            // 
-            radioButton21.AutoSize = true;
-            radioButton21.Location = new Point(261, 355);
-            radioButton21.Name = "radioButton21";
-            radioButton21.Size = new Size(60, 19);
-            radioButton21.TabIndex = 26;
-            radioButton21.TabStop = true;
-            radioButton21.Text = "Savory";
-            radioButton21.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            button1.Location = new Point(680, 404);
+            button1.Location = new Point(777, 539);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(86, 31);
             button1.TabIndex = 27;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
             // 
+            // pnlEmotions
+            // 
+            pnlEmotions.Controls.Add(panel1);
+            pnlEmotions.Controls.Add(tlpEmotions);
+            pnlEmotions.Controls.Add(lblTitle);
+            pnlEmotions.Dock = DockStyle.Fill;
+            pnlEmotions.Location = new Point(0, 0);
+            pnlEmotions.Name = "pnlEmotions";
+            pnlEmotions.Size = new Size(482, 610);
+            pnlEmotions.TabIndex = 28;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(pnlFood3);
+            panel1.Controls.Add(pnlFood2);
+            panel1.Controls.Add(pnlFood1);
+            panel1.Controls.Add(lblRecommended);
+            panel1.Controls.Add(pnlEmotionCard);
+            panel1.Controls.Add(pnlHeader);
+            panel1.Controls.Add(btnBack);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(482, 610);
+            panel1.TabIndex = 2;
+            panel1.Visible = false;
+            // 
+            // pnlFood3
+            // 
+            pnlFood3.Controls.Add(lblFood3Desc);
+            pnlFood3.Controls.Add(lblFood3Name);
+            pnlFood3.Location = new Point(20, 450);
+            pnlFood3.Name = "pnlFood3";
+            pnlFood3.Size = new Size(440, 70);
+            pnlFood3.TabIndex = 6;
+            pnlFood3.Paint += pnlFood3_Paint;
+            // 
+            // lblFood3Desc
+            // 
+            lblFood3Desc.AutoSize = true;
+            lblFood3Desc.Location = new Point(41, 31);
+            lblFood3Desc.Name = "lblFood3Desc";
+            lblFood3Desc.Size = new Size(50, 20);
+            lblFood3Desc.TabIndex = 1;
+            lblFood3Desc.Text = "label3";
+            // 
+            // lblFood3Name
+            // 
+            lblFood3Name.AutoSize = true;
+            lblFood3Name.Location = new Point(41, 11);
+            lblFood3Name.Name = "lblFood3Name";
+            lblFood3Name.Size = new Size(50, 20);
+            lblFood3Name.TabIndex = 0;
+            lblFood3Name.Text = "label4";
+            // 
+            // pnlFood2
+            // 
+            pnlFood2.Controls.Add(lblFood2Desc);
+            pnlFood2.Controls.Add(lblFood2Name);
+            pnlFood2.Location = new Point(20, 370);
+            pnlFood2.Name = "pnlFood2";
+            pnlFood2.Size = new Size(440, 70);
+            pnlFood2.TabIndex = 5;
+            // 
+            // lblFood2Desc
+            // 
+            lblFood2Desc.AutoSize = true;
+            lblFood2Desc.Location = new Point(38, 35);
+            lblFood2Desc.Name = "lblFood2Desc";
+            lblFood2Desc.Size = new Size(50, 20);
+            lblFood2Desc.TabIndex = 1;
+            lblFood2Desc.Text = "label2";
+            // 
+            // lblFood2Name
+            // 
+            lblFood2Name.AutoSize = true;
+            lblFood2Name.Location = new Point(34, 9);
+            lblFood2Name.Name = "lblFood2Name";
+            lblFood2Name.Size = new Size(50, 20);
+            lblFood2Name.TabIndex = 0;
+            lblFood2Name.Text = "label3";
+            // 
+            // pnlFood1
+            // 
+            pnlFood1.Controls.Add(lblFood1Desc);
+            pnlFood1.Controls.Add(lblFood1Name);
+            pnlFood1.Location = new Point(20, 290);
+            pnlFood1.Name = "pnlFood1";
+            pnlFood1.Size = new Size(440, 70);
+            pnlFood1.TabIndex = 4;
+            // 
+            // lblFood1Desc
+            // 
+            lblFood1Desc.AutoSize = true;
+            lblFood1Desc.Location = new Point(41, 30);
+            lblFood1Desc.Name = "lblFood1Desc";
+            lblFood1Desc.Size = new Size(50, 20);
+            lblFood1Desc.TabIndex = 1;
+            lblFood1Desc.Text = "label2";
+            // 
+            // lblFood1Name
+            // 
+            lblFood1Name.AutoSize = true;
+            lblFood1Name.Location = new Point(41, 7);
+            lblFood1Name.Name = "lblFood1Name";
+            lblFood1Name.Size = new Size(50, 20);
+            lblFood1Name.TabIndex = 0;
+            lblFood1Name.Text = "label2";
+            // 
+            // lblRecommended
+            // 
+            lblRecommended.AutoSize = true;
+            lblRecommended.Location = new Point(20, 255);
+            lblRecommended.Name = "lblRecommended";
+            lblRecommended.Size = new Size(154, 20);
+            lblRecommended.TabIndex = 3;
+            lblRecommended.Text = "Recommended Foods";
+            // 
+            // pnlEmotionCard
+            // 
+            pnlEmotionCard.Controls.Add(lblEmotionName);
+            pnlEmotionCard.Controls.Add(lblEmotionEmoji);
+            pnlEmotionCard.Location = new Point(20, 140);
+            pnlEmotionCard.Name = "pnlEmotionCard";
+            pnlEmotionCard.Size = new Size(440, 100);
+            pnlEmotionCard.TabIndex = 2;
+            // 
+            // lblEmotionName
+            // 
+            lblEmotionName.AutoSize = true;
+            lblEmotionName.Location = new Point(41, 63);
+            lblEmotionName.Name = "lblEmotionName";
+            lblEmotionName.Size = new Size(50, 20);
+            lblEmotionName.TabIndex = 1;
+            lblEmotionName.Text = "label2";
+            // 
+            // lblEmotionEmoji
+            // 
+            lblEmotionEmoji.AutoSize = true;
+            lblEmotionEmoji.Location = new Point(38, 11);
+            lblEmotionEmoji.Name = "lblEmotionEmoji";
+            lblEmotionEmoji.Size = new Size(50, 20);
+            lblEmotionEmoji.TabIndex = 0;
+            lblEmotionEmoji.Text = "label2";
+            // 
+            // pnlHeader
+            // 
+            pnlHeader.Controls.Add(label1);
+            pnlHeader.Controls.Add(lblSubtitle);
+            pnlHeader.Controls.Add(lblFoodGuide);
+            pnlHeader.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            pnlHeader.Location = new Point(0, 45);
+            pnlHeader.Name = "pnlHeader";
+            pnlHeader.Size = new Size(482, 80);
+            pnlHeader.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(0, 48);
+            label1.Name = "label1";
+            label1.Size = new Size(222, 23);
+            label1.TabIndex = 2;
+            label1.Text = "Personalized for your mood";
+            label1.Click += label1_Click_1;
+            // 
+            // lblSubtitle
+            // 
+            lblSubtitle.AutoSize = true;
+            lblSubtitle.Location = new Point(44, 37);
+            lblSubtitle.Name = "lblSubtitle";
+            lblSubtitle.Size = new Size(0, 23);
+            lblSubtitle.TabIndex = 1;
+            // 
+            // lblFoodGuide
+            // 
+            lblFoodGuide.AutoSize = true;
+            lblFoodGuide.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblFoodGuide.Location = new Point(3, 9);
+            lblFoodGuide.Name = "lblFoodGuide";
+            lblFoodGuide.Size = new Size(158, 28);
+            lblFoodGuide.TabIndex = 0;
+            lblFoodGuide.Text = "You Food Guide";
+            lblFoodGuide.Click += lblFoodGuide_Click;
+            // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(10, 10);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(80, 30);
+            btnBack.TabIndex = 0;
+            btnBack.Text = "<-- Back";
+            btnBack.UseVisualStyleBackColor = true;
+            // 
+            // tlpEmotions
+            // 
+            tlpEmotions.ColumnCount = 2;
+            tlpEmotions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpEmotions.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tlpEmotions.Controls.Add(pnlHappy, 0, 0);
+            tlpEmotions.Controls.Add(pnlSad, 1, 0);
+            tlpEmotions.Controls.Add(pnlAngry, 0, 1);
+            tlpEmotions.Controls.Add(pnlStressed, 1, 1);
+            tlpEmotions.Controls.Add(pnlBored, 0, 2);
+            tlpEmotions.Controls.Add(panel6, 1, 2);
+            tlpEmotions.Location = new Point(20, 70);
+            tlpEmotions.Name = "tlpEmotions";
+            tlpEmotions.RowCount = 3;
+            tlpEmotions.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tlpEmotions.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tlpEmotions.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tlpEmotions.Size = new Size(450, 500);
+            tlpEmotions.TabIndex = 1;
+            tlpEmotions.Paint += tlpEmotions_Paint;
+            // 
+            // pnlHappy
+            // 
+            pnlHappy.BackColor = Color.FromArgb(255, 224, 130);
+            pnlHappy.Controls.Add(lblNameHappy);
+            pnlHappy.Controls.Add(lblEmojiHappy);
+            pnlHappy.Dock = DockStyle.Fill;
+            pnlHappy.Location = new Point(3, 3);
+            pnlHappy.Name = "pnlHappy";
+            pnlHappy.Size = new Size(219, 160);
+            pnlHappy.TabIndex = 0;
+            // 
+            // lblNameHappy
+            // 
+            lblNameHappy.AutoSize = true;
+            lblNameHappy.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNameHappy.Location = new Point(70, 105);
+            lblNameHappy.Name = "lblNameHappy";
+            lblNameHappy.Size = new Size(68, 25);
+            lblNameHappy.TabIndex = 1;
+            lblNameHappy.Text = "Happy";
+            // 
+            // lblEmojiHappy
+            // 
+            lblEmojiHappy.AutoSize = true;
+            lblEmojiHappy.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmojiHappy.Location = new Point(50, 20);
+            lblEmojiHappy.Name = "lblEmojiHappy";
+            lblEmojiHappy.Size = new Size(117, 81);
+            lblEmojiHappy.TabIndex = 0;
+            lblEmojiHappy.Text = "😊";
+            lblEmojiHappy.Click += lblEmojiHappy_Click;
+            // 
+            // pnlSad
+            // 
+            pnlSad.BackColor = Color.FromArgb(144, 202, 249);
+            pnlSad.Controls.Add(lblNameSad);
+            pnlSad.Controls.Add(lblEmojiSad);
+            pnlSad.Dock = DockStyle.Fill;
+            pnlSad.Location = new Point(228, 3);
+            pnlSad.Name = "pnlSad";
+            pnlSad.Size = new Size(219, 160);
+            pnlSad.TabIndex = 1;
+            // 
+            // lblNameSad
+            // 
+            lblNameSad.AutoSize = true;
+            lblNameSad.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNameSad.Location = new Point(85, 105);
+            lblNameSad.Name = "lblNameSad";
+            lblNameSad.Size = new Size(43, 25);
+            lblNameSad.TabIndex = 1;
+            lblNameSad.Text = "Sad";
+            // 
+            // lblEmojiSad
+            // 
+            lblEmojiSad.AutoSize = true;
+            lblEmojiSad.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmojiSad.Location = new Point(50, 20);
+            lblEmojiSad.Name = "lblEmojiSad";
+            lblEmojiSad.Size = new Size(117, 81);
+            lblEmojiSad.TabIndex = 0;
+            lblEmojiSad.Text = "😢";
+            // 
+            // pnlAngry
+            // 
+            pnlAngry.BackColor = Color.FromArgb(239, 154, 154);
+            pnlAngry.Controls.Add(lblNameAngry);
+            pnlAngry.Controls.Add(lblEmojiAngry);
+            pnlAngry.Dock = DockStyle.Fill;
+            pnlAngry.Location = new Point(3, 169);
+            pnlAngry.Name = "pnlAngry";
+            pnlAngry.Size = new Size(219, 160);
+            pnlAngry.TabIndex = 2;
+            // 
+            // lblNameAngry
+            // 
+            lblNameAngry.AutoSize = true;
+            lblNameAngry.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNameAngry.Location = new Point(70, 101);
+            lblNameAngry.Name = "lblNameAngry";
+            lblNameAngry.Size = new Size(65, 25);
+            lblNameAngry.TabIndex = 2;
+            lblNameAngry.Text = "Angry";
+            // 
+            // lblEmojiAngry
+            // 
+            lblEmojiAngry.AutoSize = true;
+            lblEmojiAngry.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmojiAngry.Location = new Point(50, 20);
+            lblEmojiAngry.Name = "lblEmojiAngry";
+            lblEmojiAngry.Size = new Size(117, 81);
+            lblEmojiAngry.TabIndex = 1;
+            lblEmojiAngry.Text = "😠";
+            // 
+            // pnlStressed
+            // 
+            pnlStressed.BackColor = Color.FromArgb(206, 147, 216);
+            pnlStressed.Controls.Add(lblEmojiStressed);
+            pnlStressed.Controls.Add(lblEmojiStrssed);
+            pnlStressed.Dock = DockStyle.Fill;
+            pnlStressed.Location = new Point(228, 169);
+            pnlStressed.Name = "pnlStressed";
+            pnlStressed.Size = new Size(219, 160);
+            pnlStressed.TabIndex = 3;
+            // 
+            // lblEmojiStressed
+            // 
+            lblEmojiStressed.AutoSize = true;
+            lblEmojiStressed.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEmojiStressed.Location = new Point(65, 100);
+            lblEmojiStressed.Name = "lblEmojiStressed";
+            lblEmojiStressed.Size = new Size(83, 25);
+            lblEmojiStressed.TabIndex = 3;
+            lblEmojiStressed.Text = "Stressed";
+            // 
+            // lblEmojiStrssed
+            // 
+            lblEmojiStrssed.AutoSize = true;
+            lblEmojiStrssed.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmojiStrssed.Location = new Point(51, 20);
+            lblEmojiStrssed.Name = "lblEmojiStrssed";
+            lblEmojiStrssed.Size = new Size(117, 81);
+            lblEmojiStrssed.TabIndex = 2;
+            lblEmojiStrssed.Text = "😩";
+            // 
+            // pnlBored
+            // 
+            pnlBored.BackColor = Color.FromArgb(165, 214, 167);
+            pnlBored.Controls.Add(lblNameBored);
+            pnlBored.Controls.Add(lblEmojiBored);
+            pnlBored.Dock = DockStyle.Fill;
+            pnlBored.Location = new Point(3, 335);
+            pnlBored.Name = "pnlBored";
+            pnlBored.Size = new Size(219, 162);
+            pnlBored.TabIndex = 4;
+            // 
+            // lblNameBored
+            // 
+            lblNameBored.AutoSize = true;
+            lblNameBored.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblNameBored.Location = new Point(75, 100);
+            lblNameBored.Name = "lblNameBored";
+            lblNameBored.Size = new Size(63, 25);
+            lblNameBored.TabIndex = 4;
+            lblNameBored.Text = "Bored";
+            // 
+            // lblEmojiBored
+            // 
+            lblEmojiBored.AutoSize = true;
+            lblEmojiBored.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmojiBored.Location = new Point(50, 20);
+            lblEmojiBored.Name = "lblEmojiBored";
+            lblEmojiBored.Size = new Size(117, 81);
+            lblEmojiBored.TabIndex = 3;
+            lblEmojiBored.Text = "😴";
+            // 
+            // panel6
+            // 
+            panel6.Dock = DockStyle.Fill;
+            panel6.Location = new Point(228, 335);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(219, 162);
+            panel6.TabIndex = 5;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(20, 20);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(351, 41);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "How do you feel today?";
+            // 
             // FoodPrefernces
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(482, 610);
+            Controls.Add(pnlEmotions);
             Controls.Add(button1);
-            Controls.Add(radioButton21);
-            Controls.Add(radioButton20);
-            Controls.Add(radioButton19);
-            Controls.Add(radioButton18);
-            Controls.Add(radioButton17);
-            Controls.Add(radioButton16);
-            Controls.Add(radioButton15);
-            Controls.Add(radioButton14);
-            Controls.Add(radioButton13);
-            Controls.Add(radioButton12);
-            Controls.Add(radioButton11);
-            Controls.Add(radioButton10);
-            Controls.Add(radioButton9);
-            Controls.Add(radioButton8);
-            Controls.Add(radioButton7);
-            Controls.Add(radioButton6);
             Controls.Add(radioButton5);
-            Controls.Add(radioButton4);
-            Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FoodPrefernces";
-            Text = "Form2";
+            Text = "How do you feel today?";
+            Load += FoodPrefernces_Load;
+            pnlEmotions.ResumeLayout(false);
+            pnlEmotions.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            pnlFood3.ResumeLayout(false);
+            pnlFood3.PerformLayout();
+            pnlFood2.ResumeLayout(false);
+            pnlFood2.PerformLayout();
+            pnlFood1.ResumeLayout(false);
+            pnlFood1.PerformLayout();
+            pnlEmotionCard.ResumeLayout(false);
+            pnlEmotionCard.PerformLayout();
+            pnlHeader.ResumeLayout(false);
+            pnlHeader.PerformLayout();
+            tlpEmotions.ResumeLayout(false);
+            pnlHappy.ResumeLayout(false);
+            pnlHappy.PerformLayout();
+            pnlSad.ResumeLayout(false);
+            pnlSad.PerformLayout();
+            pnlAngry.ResumeLayout(false);
+            pnlAngry.PerformLayout();
+            pnlStressed.ResumeLayout(false);
+            pnlStressed.PerformLayout();
+            pnlBored.ResumeLayout(false);
+            pnlBored.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
         private RadioButton radioButton5;
-        private RadioButton radioButton6;
-        private RadioButton radioButton7;
-        private RadioButton radioButton8;
-        private RadioButton radioButton9;
-        private RadioButton radioButton10;
-        private RadioButton radioButton11;
-        private RadioButton radioButton12;
-        private RadioButton radioButton13;
-        private RadioButton radioButton14;
-        private RadioButton radioButton15;
-        private RadioButton radioButton16;
-        private RadioButton radioButton17;
-        private RadioButton radioButton18;
-        private RadioButton radioButton19;
-        private RadioButton radioButton20;
-        private RadioButton radioButton21;
         private Button button1;
+        private Panel pnlEmotions;
+        private Label lblTitle;
+        private TableLayoutPanel tlpEmotions;
+        private Panel pnlHappy;
+        private Panel pnlSad;
+        private Panel pnlAngry;
+        private Panel pnlStressed;
+        private Panel pnlBored;
+        private Panel panel6;
+        private Label lblNameHappy;
+        private Label lblEmojiHappy;
+        private Label lblNameSad;
+        private Label lblEmojiSad;
+        private Label lblEmojiAngry;
+        private Label lblNameAngry;
+        private Label lblEmojiStrssed;
+        private Label lblEmojiStressed;
+        private Label lblNameBored;
+        private Label lblEmojiBored;
+        private Panel panel1;
+        private Panel pnlHeader;
+        private Button btnBack;
+        private Label lblRecommended;
+        private Panel pnlEmotionCard;
+        private Panel pnlFood3;
+        private Panel pnlFood2;
+        private Panel pnlFood1;
+        private Label lblFoodGuide;
+        private Label lblSubtitle;
+        private Label label1;
+        private Label lblFood3Name;
+        private Label lblFood2Name;
+        private Label lblFood1Name;
+        private Label lblEmotionName;
+        private Label lblEmotionEmoji;
+        private Label lblFood3Desc;
+        private Label lblFood2Desc;
+        private Label lblFood1Desc;
     }
 }

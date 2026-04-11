@@ -5,17 +5,6 @@ using System.Data.OleDb;
 
 namespace Bon
 {
-}
-
-namespace Bon
-{
-}
-
-namespace Bon
-{
-    /// <summary>
-    /// Helper methods for accessing the Access database.
-    /// </summary>
     public static class DataAccess
     {
         public static List<string> GetTableNames(string connectionString)
@@ -25,9 +14,7 @@ namespace Bon
             {
                 connection.Open();
                 DataTable schema = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
-                if (schema == null)
-                    return tableNames;
-
+                if (schema == null) return tableNames;
                 foreach (DataRow row in schema.Rows)
                 {
                     var name = row["TABLE_NAME"]?.ToString();
@@ -35,7 +22,6 @@ namespace Bon
                         tableNames.Add(name);
                 }
             }
-
             return tableNames;
         }
 
@@ -49,7 +35,6 @@ namespace Bon
                 connection.Open();
                 adapter.Fill(dt);
             }
-
             return dt;
         }
 
@@ -59,8 +44,7 @@ namespace Bon
             using var command = new OleDbCommand("SELECT COUNT(*) FROM [Users] WHERE [Username] = ?", connection);
             command.Parameters.AddWithValue("@p1", username);
             connection.Open();
-            var result = command.ExecuteScalar();
-            return Convert.ToInt32(result) > 0;
+            return Convert.ToInt32(command.ExecuteScalar()) > 0;
         }
 
         public static int InsertUser(string connectionString, string username, string email, string password)
@@ -97,61 +81,6 @@ namespace Bon
             return dt;
         }
 
-        // Ensure a UserPreferences table exists. Columns: ID AUTOINCREMENT PK, Username, PreferenceKey, PreferenceValue, Created
-        public static void EnsurePreferencesTableExists(string connectionString)
-        {
-            using var connection = new OleDbConnection(connectionString);
-            connection.Open();
-
-            // check if table exists
-            DataTable schema = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
-            var exists = false;
-            if (schema != null)
-            {
-                foreach (DataRow row in schema.Rows)
-                {
-                    var name = row["TABLE_NAME"]?.ToString();
-                    if (string.Equals(name, "UserPreferences", StringComparison.OrdinalIgnoreCase))
-                    {
-                        exists = true;
-                        break;
-                    }
-                }
-            }
-
-            if (!exists)
-            {
-                using var cmd = connection.CreateCommand();
-                // Create table in Access
-                cmd.CommandText = "CREATE TABLE UserPreferences (ID AUTOINCREMENT PRIMARY KEY, Username TEXT(255), PreferenceKey TEXT(255), PreferenceValue TEXT(255), Created DATETIME)";
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        // Save or replace a user's preference (simple upsert: delete existing key then insert)
-        public static void SaveUserPreference(string connectionString, string username, string key, string value)
-        {
-            EnsurePreferencesTableExists(connectionString);
-            using var connection = new OleDbConnection(connectionString);
-            connection.Open();
-
-            using (var del = new OleDbCommand("DELETE FROM UserPreferences WHERE Username = ? AND PreferenceKey = ?", connection))
-            {
-                del.Parameters.AddWithValue("@p1", username);
-                del.Parameters.AddWithValue("@p2", key);
-                del.ExecuteNonQuery();
-            }
-
-            using (var ins = new OleDbCommand("INSERT INTO UserPreferences (Username, PreferenceKey, PreferenceValue, Created) VALUES (?, ?, ?, ?)", connection))
-            {
-                ins.Parameters.AddWithValue("@p1", username);
-                ins.Parameters.AddWithValue("@p2", key);
-                ins.Parameters.AddWithValue("@p3", value);
-                ins.Parameters.AddWithValue("@p4", DateTime.Now);
-                ins.ExecuteNonQuery();
-            }
-        }
-
         public static DataTable GetPreferencesForUser(string connectionString, string username)
         {
             var dt = new DataTable();
@@ -164,25 +93,24 @@ namespace Bon
             return dt;
         }
 
-        // Save a single preference column (Happy, Sad, Angry, Confused, Frustrated) for a user.
-        // If a row for the user exists, update the column; otherwise insert a new row with that column set.
+        // Save a single preference column for a user (Happy, Sad, Angry, Stressed, Bored)
         public static void SavePreferenceColumn(string connectionString, string username, string columnName, string value)
         {
-            // validate column name against allowed set to avoid SQL injection
-            var allowed = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "Happy", "Sad", "Angry", "Confused", "Frustrated" };
+            var allowed = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+                { "Happy", "Sad", "Angry", "Stressed", "Bored" };
+
             if (!allowed.Contains(columnName))
                 throw new ArgumentException("Invalid preference column", nameof(columnName));
 
             using var connection = new OleDbConnection(connectionString);
             connection.Open();
 
-            using var check = new OleDbCommand("SELECT COUNT(*) FROM [preferences] WHERE [Username] = ?", connection);
+            using var check = new OleDbCommand("SELECT COUNT(*) FROM [Preferences] WHERE [Username] = ?", connection);
             check.Parameters.AddWithValue("@p1", username);
             var cnt = Convert.ToInt32(check.ExecuteScalar());
 
             if (cnt > 0)
             {
-                // update existing row
                 var sql = $"UPDATE [Preferences] SET [{columnName}] = ? WHERE [Username] = ?";
                 using var cmd = new OleDbCommand(sql, connection);
                 cmd.Parameters.AddWithValue("@p1", value);
@@ -191,11 +119,116 @@ namespace Bon
             }
             else
             {
-                // insert new row with the single column value
                 var sql = $"INSERT INTO [Preferences] ([Username], [{columnName}]) VALUES (?, ?)";
                 using var cmd = new OleDbCommand(sql, connection);
                 cmd.Parameters.AddWithValue("@p1", username);
                 cmd.Parameters.AddWithValue("@p2", value);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Save all cravings for a user in one go
+        public static void SaveCravings(string connectionString, string username,
+            string happy, string sad, string angry, string stressed, string bored)
+        {
+            using var connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            using var check = new OleDbCommand("SELECT COUNT(*) FROM [Cravings] WHERE [Username] = ?", connection);
+            check.Parameters.AddWithValue("@p1", username);
+            var cnt = Convert.ToInt32(check.ExecuteScalar());
+
+            if (cnt > 0)
+            {
+                using var cmd = new OleDbCommand(
+                    "UPDATE [Cravings] SET [HappyCraving]=?, [SadCraving]=?, [AngryCraving]=?, [StressedCraving]=?, [BoredCraving]=? WHERE [Username]=?",
+                    connection);
+                cmd.Parameters.AddWithValue("@p1", happy);
+                cmd.Parameters.AddWithValue("@p2", sad);
+                cmd.Parameters.AddWithValue("@p3", angry);
+                cmd.Parameters.AddWithValue("@p4", stressed);
+                cmd.Parameters.AddWithValue("@p5", bored);
+                cmd.Parameters.AddWithValue("@p6", username);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                using var cmd = new OleDbCommand(
+                    "INSERT INTO [Cravings] ([Username],[HappyCraving],[SadCraving],[AngryCraving],[StressedCraving],[BoredCraving]) VALUES (?,?,?,?,?,?)",
+                    connection);
+                cmd.Parameters.AddWithValue("@p1", username);
+                cmd.Parameters.AddWithValue("@p2", happy);
+                cmd.Parameters.AddWithValue("@p3", sad);
+                cmd.Parameters.AddWithValue("@p4", angry);
+                cmd.Parameters.AddWithValue("@p5", stressed);
+                cmd.Parameters.AddWithValue("@p6", bored);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        // Get a user's craving for a specific emotion
+        public static string GetCravingForEmotion(string connectionString, string username, string emotion)
+        {
+            var allowed = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+                { "HappyCraving", "SadCraving", "AngryCraving", "StressedCraving", "BoredCraving" };
+
+            if (!allowed.Contains(emotion))
+                throw new ArgumentException("Invalid craving column", nameof(emotion));
+
+            using var connection = new OleDbConnection(connectionString);
+            using var cmd = new OleDbCommand($"SELECT [{emotion}] FROM [Cravings] WHERE [Username] = ?", connection);
+            cmd.Parameters.AddWithValue("@p1", username);
+            connection.Open();
+            var result = cmd.ExecuteScalar();
+            return result?.ToString() ?? string.Empty;
+        }
+
+        // Get all foods for a category (Sweet, Sour, Spicy, Salty)
+        public static DataTable GetFoodsByCategory(string connectionString, string category)
+        {
+            var dt = new DataTable();
+            using var connection = new OleDbConnection(connectionString);
+            using var cmd = new OleDbCommand("SELECT [FoodName] FROM [Foods] WHERE [Category] = ?", connection);
+            cmd.Parameters.AddWithValue("@p1", category);
+            using var adapter = new OleDbDataAdapter(cmd);
+            connection.Open();
+            adapter.Fill(dt);
+            return dt;
+        }
+        public static void SaveAllPreferences(string connectionString, string username,
+    string happy, string sad, string angry, string stressed, string bored)
+        {
+            using var connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            using var check = new OleDbCommand("SELECT COUNT(*) FROM [Preferences] WHERE [Username] = ?", connection);
+            check.Parameters.AddWithValue("@p1", username);
+            var cnt = Convert.ToInt32(check.ExecuteScalar());
+
+            if (cnt > 0)
+            {
+                using var cmd = new OleDbCommand(
+                    "UPDATE [Preferences] SET [Happy]=?, [Sad]=?, [Angry]=?, [Stressed]=?, [Bored]=? WHERE [Username]=?",
+                    connection);
+                cmd.Parameters.AddWithValue("@p1", happy);
+                cmd.Parameters.AddWithValue("@p2", sad);
+                cmd.Parameters.AddWithValue("@p3", angry);
+                cmd.Parameters.AddWithValue("@p4", stressed);
+                cmd.Parameters.AddWithValue("@p5", bored);
+                cmd.Parameters.AddWithValue("@p6", username);
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                using var cmd = new OleDbCommand(
+                    "INSERT INTO [Preferences] ([Username],[Happy],[Sad],[Angry],[Stressed],[Bored]) VALUES (?,?,?,?,?,?)",
+                    connection);
+                cmd.Parameters.AddWithValue("@p1", username);
+                cmd.Parameters.AddWithValue("@p2", happy);
+                cmd.Parameters.AddWithValue("@p3", sad);
+                cmd.Parameters.AddWithValue("@p4", angry);
+                cmd.Parameters.AddWithValue("@p5", stressed);
+                cmd.Parameters.AddWithValue("@p6", bored);
                 cmd.ExecuteNonQuery();
             }
         }

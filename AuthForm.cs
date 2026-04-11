@@ -1,103 +1,152 @@
-using System;
-using System.Windows.Forms;
+﻿using System;
+using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Security.Cryptography.Xml;
+using System.Windows.Forms;
 
 namespace Bon
 {
-    public class AuthForm : Form
+    public partial class AuthForm : Form
     {
-        private Button btnLogin;
-        private Button btnSignUp;
-        private Label labelTitle;
+        private bool isLoginMode = true;
+        private readonly string connectionString =
+    $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={AppDomain.CurrentDomain.BaseDirectory}Bon.accdb";
 
         public AuthForm()
         {
             InitializeComponent();
+            ApplyLayout();
+
+            // Start in login mode
+            lblEmail.Visible = false;
+            txtEmail.Visible = false;
         }
 
-        private void InitializeComponent()
+        // Gradient Button
+        private void BtnContinue_Paint(object sender, PaintEventArgs e)
         {
-            labelTitle = new Label();
-            btnLogin = new Button();
-            btnSignUp = new Button();
-            SuspendLayout();
-            // 
-            // labelTitle
-            // 
-            labelTitle.AutoSize = true;
-            labelTitle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
-            labelTitle.Location = new Point(102, 28);
-            labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(211, 20);
-            labelTitle.TabIndex = 0;
-            labelTitle.Text = "Please choose an option:";
-            // 
-            // btnLogin
-            // 
-            btnLogin.Location = new Point(60, 80);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(120, 36);
-            btnLogin.TabIndex = 1;
-            btnLogin.Text = "Log in";
-            btnLogin.Click += BtnLogin_Click;
-            // 
-            // btnSignUp
-            // 
-            btnSignUp.Location = new Point(240, 80);
-            btnSignUp.Name = "btnSignUp";
-            btnSignUp.Size = new Size(120, 36);
-            btnSignUp.TabIndex = 2;
-            btnSignUp.Text = "Sign up";
-            btnSignUp.Click += BtnSignUp_Click;
-            // 
-            // AuthForm
-            // 
-            ClientSize = new Size(420, 180);
-            Controls.Add(labelTitle);
-            Controls.Add(btnLogin);
-            Controls.Add(btnSignUp);
-            Name = "AuthForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Welcome";
-            ResumeLayout(false);
-            PerformLayout();
-        }
+            Button? btn = sender as Button;
+            if (btn == null) return;
 
-        private void BtnLogin_Click(object? sender, EventArgs e)
-        {
-            // Open a dedicated login dialog that asks for username and password
-            using (var login = new LoginForm())
+            using (LinearGradientBrush brush = new LinearGradientBrush(
+                btn.ClientRectangle,
+                Color.FromArgb(186, 142, 255),
+                Color.FromArgb(140, 180, 255),
+                LinearGradientMode.Horizontal))
             {
-                var result = login.ShowDialog(this);
-                if (result == DialogResult.OK)
+                e.Graphics.FillRectangle(brush, btn.ClientRectangle);
+            }
+
+            TextRenderer.DrawText(
+                e.Graphics,
+                btn.Text,
+                btn.Font,
+                btn.ClientRectangle,
+                Color.White,
+                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+        }
+
+        private void LinkSwitch_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            isLoginMode = !isLoginMode;
+
+            btnContinue.Text = isLoginMode ? "Login →" : "Register →";
+            linkSwitch.Text = isLoginMode
+                ? "Don't have an account? Register"
+                : "Already have an account? Login";
+
+            ApplyLayout();
+            btnContinue.Invalidate();
+        }
+
+        private void BtnContinue_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsername.Text) ||
+                string.IsNullOrWhiteSpace(txtPassword.Text) ||
+                (!isLoginMode && string.IsNullOrWhiteSpace(txtEmail.Text)))
+            {
+                MessageBox.Show("Please fill all required fields.");
+                return;
+            }
+
+            if (isLoginMode)
+            {
+                if (LoginUser(txtUsername.Text, txtPassword.Text))
+                    OpenMainForm();
+                else
+                    MessageBox.Show("Invalid credentials.");
+            }
+            else
+            {
+                if (RegisterUser(txtUsername.Text, txtEmail.Text, txtPassword.Text))
                 {
-                    // authenticated - open main form
-                    using (var f = new Form1())
-                    {
-                        this.Hide();
-                        f.ShowDialog(this);
-                        this.Show();
-                    }
+                    MessageBox.Show("Registration successful!");
+                    LinkSwitch_LinkClicked(this, new LinkLabelLinkClickedEventArgs(null));
                 }
-                // otherwise stay on this form
+                else
+                    MessageBox.Show("Registration failed.");
             }
         }
 
-        private void BtnSignUp_Click(object? sender, EventArgs e)
+        private void OpenMainForm()
         {
-            // Open Form1 in sign-up mode
-            using (var f = new Form1(isSignupMode: true))
+            preferences pref = new preferences(txtUsername.Text);
+            this.Hide();
+            pref.ShowDialog(this);
+            this.Close();
+        }
+
+        //first project upload
+
+        // uploading project to github
+
+        private bool LoginUser(string username, string password)
+        {
+            var dt = DataAccess.GetUser(connectionString, username);
+            if (dt.Rows.Count == 0) return false;
+
+            var stored = dt.Rows[0]["Password"]?.ToString() ?? "";
+            return stored == password;
+        }
+
+        private bool RegisterUser(string username, string email, string password)
+        {
+            if (DataAccess.UserExists(connectionString, username))
             {
-                this.Hide();
-                f.ShowDialog(this);
-                if (f.PreferencesOpened)
-                {
-                    // user was moved to preferences; close auth form
-                    this.Close();
-                    return;
-                }
-                this.Show();
+                MessageBox.Show("Username already exists.");
+                return false;
             }
+
+            return DataAccess.InsertUser(connectionString, username, email, password) > 0;
+        }
+        private void ApplyLayout()
+        {
+            if (isLoginMode)
+            {
+                lblEmail.Visible = false;
+                txtEmail.Visible = false;
+
+                lblPassword.Location = new Point(50, 190);
+                txtPassword.Location = new Point(50, 210);
+                btnContinue.Location = new Point(50, 260);
+                linkSwitch.Location = new Point(90, 320);
+            }
+            else
+            {
+                lblEmail.Visible = true;
+                txtEmail.Visible = true;
+
+                lblPassword.Location = new Point(50, 250);
+                txtPassword.Location = new Point(50, 270);
+                btnContinue.Location = new Point(50, 320);
+                linkSwitch.Location = new Point(90, 380);
+            }
+        }
+
+        private void AuthForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

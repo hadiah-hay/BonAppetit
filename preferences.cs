@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 
@@ -12,33 +9,21 @@ namespace Bon
     public partial class preferences : Form
     {
         private readonly string _username;
-        private readonly string _connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\User\Documents\Bon.accdb";
-        private readonly Dictionary<string, string> _selections = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-        private readonly string[] _requiredKeys = new[] { "Happy", "Sad", "Angry", "Confused", "Frustrated" };
+        private readonly string _connectionString =
+            $@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={AppDomain.CurrentDomain.BaseDirectory}Bon.accdb";
+        private readonly Dictionary<string, string> _selections = new(StringComparer.OrdinalIgnoreCase);
+        private readonly string[] _requiredKeys = new[] { "Happy", "Sad", "Angry", "Bored", "Stressed" };
+
         public preferences()
         {
             InitializeComponent();
-            AttachPreferenceHandlers();
-            // Check that the Preferences table exists in the database
             try
             {
                 var tables = DataAccess.GetTableNames(_connectionString);
-                var hasPreferences = tables.Exists(t => string.Equals(t, "Preferences", StringComparison.OrdinalIgnoreCase));
-                if (!hasPreferences)
-                {
-                    // show inline notice on the title label and write debug output
+                if (!tables.Exists(t => string.Equals(t, "Preferences", StringComparison.OrdinalIgnoreCase)))
                     label1.Text += " (DB table 'Preferences' not found)";
-                    Debug.WriteLine("Preferences form: 'Preferences' table not found. Available tables: " + string.Join(", ", tables));
-                }
-                else
-                {
-                    Debug.WriteLine("Preferences form: 'Preferences' table found.");
-                }
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Preferences table check failed: {ex.Message}");
-            }
+            catch (Exception ex) { Debug.WriteLine(ex.Message); }
         }
 
         public preferences(string username) : this()
@@ -46,180 +31,123 @@ namespace Bon
             _username = username;
         }
 
-        private void AttachPreferenceHandlers()
+        private void preferences_Load(object sender, EventArgs e)
         {
-            // attach a shared handler to all buttons to capture preference selections
-            foreach (Control c in this.Controls)
-            {
-                if (c is Button b && b != null)
-                {
-                    // ignore navigation or other buttons (such as the Save button)
-                    if (string.Equals(b.Name, "buttonSave", StringComparison.OrdinalIgnoreCase))
-                        continue;
-
-                    b.Click += PreferenceButtonClick;
-                }
-            }
+            // all craving panels hidden on load - FlowLayout handles spacing automatically
+            happycraving.Visible = false;
+            sadcraving.Visible = false;
+            angrypanel.Visible = false;
+            boredpanel.Visible = false;
+            stressedpanel.Visible = false;
         }
 
-        
-
-        private void PreferenceButtonClick(object? sender, EventArgs e)
+        // ── FREQUENCY HANDLERS ──────────────────────────────────────
+        private void HappyFrequencySelected(object sender, EventArgs e)
         {
-            if (!(sender is Button btn))
-                return;
-
-            try
-            {
-                // find the nearest label above the button to determine the question (preference key)
-                Label nearest = null;
-                int maxY = int.MinValue;
-                foreach (Control c in this.Controls)
-                {
-                    if (c is Label lab)
-                    {
-                        if (lab.Location.Y < btn.Location.Y && lab.Location.Y > maxY)
-                        {
-                            maxY = lab.Location.Y;
-                            nearest = lab;
-                        }
-                    }
-                }
-
-                var key = nearest?.Text ?? "Unknown";
-                var value = btn.Text;
-
-                // store selection in memory and update UI states
-                _selections[key] = value;
-
-                // visually mark selected button and clear peers
-                foreach (Control c in this.Controls)
-                {
-                    if (c is Button other && other != null && !string.Equals(other.Name, "buttonSave", StringComparison.OrdinalIgnoreCase))
-                    {
-                        // find nearest label for the other button
-                        Label otherNearest = null;
-                        int otherMaxY = int.MinValue;
-                        foreach (Control cc in this.Controls)
-                        {
-                            if (cc is Label lab)
-                            {
-                                if (lab.Location.Y < other.Location.Y && lab.Location.Y > otherMaxY)
-                                {
-                                    otherMaxY = lab.Location.Y;
-                                    otherNearest = lab;
-                                }
-                            }
-                        }
-
-                        if (otherNearest != null && string.Equals(otherNearest.Text, key, StringComparison.OrdinalIgnoreCase))
-                        {
-                            other.BackColor = SystemColors.Control;
-                        }
-                    }
-                }
-                btn.BackColor = Color.LightBlue;
-
-                // require username
-                if (string.IsNullOrEmpty(_username))
-                {
-                    Debug.WriteLine("Preferences: no username provided; cannot save preference.");
-                    return;
-                }
-
-                // Save is deferred until the Save button is clicked. Indicate in debug
-                Debug.WriteLine($"Staged preference for {_username}: {key} = {value}");
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Saving preference failed: {ex.Message}");
-            }
+            Highlight(new[] { button1, button2, button3, button4, button5 }, (Button)sender);
+            _selections["Happy"] = ((Button)sender).Text;
+            happycraving.Visible = true;
         }
 
+        private void SadFrequencySelected(object sender, EventArgs e)
+        {
+            Highlight(new[] { button6, button7, button8, button9, button10 }, (Button)sender);
+            _selections["Sad"] = ((Button)sender).Text;
+            sadcraving.Visible = true;
+        }
+
+        private void AngryFrequencySelected(object sender, EventArgs e)
+        {
+            Highlight(new[] { button11, button12, button13, button14, button15 }, (Button)sender);
+            _selections["Angry"] = ((Button)sender).Text;
+            angrypanel.Visible = true;
+        }
+
+        private void BoredFrequencySelected(object sender, EventArgs e)
+        {
+            Highlight(new[] { button16, button17, button18, button19, button20 }, (Button)sender);
+            _selections["Bored"] = ((Button)sender).Text;
+            boredpanel.Visible = true;
+        }
+
+        private void StressedFrequencySelected(object sender, EventArgs e)
+        {
+            Highlight(new[] { button21, button22, button23, button24, button25 }, (Button)sender);
+            _selections["Stressed"] = ((Button)sender).Text;
+            stressedpanel.Visible = true;
+        }
+
+        // ── CRAVING HANDLER ─────────────────────────────────────────
+        private void CravingButtonClick(object? sender, EventArgs e)
+        {
+            if (sender is not Button btn) return;
+            foreach (Control c in btn.Parent.Controls)
+                if (c is Button b) b.BackColor = SystemColors.Control;
+            btn.BackColor = Color.LightBlue;
+
+            if (btn.Parent == happycraving) _selections["HappyCraving"] = btn.Text;
+            else if (btn.Parent == sadcraving) _selections["SadCraving"] = btn.Text;
+            else if (btn.Parent == angrypanel) _selections["AngryCraving"] = btn.Text;
+            else if (btn.Parent == boredpanel) _selections["BoredCraving"] = btn.Text;
+            else if (btn.Parent == stressedpanel) _selections["StressedCraving"] = btn.Text;
+        }
+
+        // ── SAVE ────────────────────────────────────────────────────
         private void buttonSave_Click(object sender, EventArgs e)
         {
             labelSaveError.Text = string.Empty;
-            // check required keys
+
             var missing = new List<string>();
             foreach (var key in _requiredKeys)
-            {
                 if (!_selections.ContainsKey(key) || string.IsNullOrWhiteSpace(_selections[key]))
                     missing.Add(key);
-            }
 
             if (missing.Count > 0)
             {
-                labelSaveError.Text = "Please select a choice for: " + string.Join(", ", missing);
+                labelSaveError.Text = "Please select: " + string.Join(", ", missing);
                 return;
             }
-
             if (string.IsNullOrEmpty(_username))
             {
-                labelSaveError.Text = "No username provided; cannot save preferences.";
+                labelSaveError.Text = "No username provided.";
                 return;
             }
 
             try
             {
-                // persist all selections
-                foreach (var kv in _selections)
-                {
-                    // only save allowed keys
-                    if (Array.Exists(_requiredKeys, k => string.Equals(k, kv.Key, StringComparison.OrdinalIgnoreCase)))
-                    {
-                        DataAccess.SavePreferenceColumn(_connectionString, _username, kv.Key, kv.Value);
-                    }
-                }
+                DataAccess.SaveAllPreferences(
+                    _connectionString, _username,
+                    _selections.GetValueOrDefault("Happy", ""),
+                    _selections.GetValueOrDefault("Sad", ""),
+                    _selections.GetValueOrDefault("Angry", ""),
+                    _selections.GetValueOrDefault("Stressed", ""),
+                    _selections.GetValueOrDefault("Bored", ""));
 
-                using var f = new PreferencesSavedForm();
+                DataAccess.SaveCravings(
+                    _connectionString, _username,
+                    _selections.GetValueOrDefault("HappyCraving", ""),
+                    _selections.GetValueOrDefault("SadCraving", ""),
+                    _selections.GetValueOrDefault("AngryCraving", ""),
+                    _selections.GetValueOrDefault("StressedCraving", ""),
+                    _selections.GetValueOrDefault("BoredCraving", ""));
+
+                using var f = new FoodPrefernces(_username);
                 f.ShowDialog(this);
                 this.Close();
+                
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Saving all preferences failed: {ex.Message}");
-                labelSaveError.Text = "Saving preferences failed.";
+                Debug.WriteLine($"Save failed: {ex.Message}");
+                labelSaveError.Text = "Saving failed: " + ex.Message;
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        // ── HELPER ──────────────────────────────────────────────────
+        private void Highlight(Button[] group, Button selected)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
+            foreach (var b in group) b.BackColor = SystemColors.Control;
+            selected.BackColor = Color.LightBlue;
         }
     }
 }
