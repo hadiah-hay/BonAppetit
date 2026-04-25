@@ -15,8 +15,10 @@ namespace Bon
 
         public AuthForm()
         {
+            this.AutoScaleDimensions = new SizeF(96F, 96F);
             InitializeComponent();
             ApplyLayout();
+
 
             // Start in login mode
             lblEmail.Visible = false;
@@ -52,9 +54,7 @@ namespace Bon
             isLoginMode = !isLoginMode;
 
             btnContinue.Text = isLoginMode ? "Login →" : "Register →";
-            linkSwitch.Text = isLoginMode
-                ? "Don't have an account? Register"
-                : "Already have an account? Login";
+            linkSwitch.Text = isLoginMode? "Don't have an account? Register": "Already have an account? Login";
 
             ApplyLayout();
             btnContinue.Invalidate();
@@ -72,20 +72,36 @@ namespace Bon
 
             if (isLoginMode)
             {
+                // Existing user logging in: only ask their mood (FoodPrefernces)
                 if (LoginUser(txtUsername.Text, txtPassword.Text))
-                    OpenMainForm();
+                {
+                    var newForm = new NewForm(txtUsername.Text);
+                    this.Hide();
+                    newForm.ShowDialog(this);
+                    this.Close();
+                }
                 else
+                {
                     MessageBox.Show("Invalid credentials.");
+                }
             }
             else
             {
+                // New user registering: require filling preferences
                 if (RegisterUser(txtUsername.Text, txtEmail.Text, txtPassword.Text))
                 {
-                    MessageBox.Show("Registration successful!");
-                    LinkSwitch_LinkClicked(this, new LinkLabelLinkClickedEventArgs(null));
+                    using var pref = new preferences(txtUsername.Text);
+                    this.Hide();
+                    pref.ShowDialog(this);
+                    // After preferences, open NewForm
+                    var newForm = new NewForm(txtUsername.Text);
+                    newForm.ShowDialog(this);
+                    this.Close();
                 }
                 else
+                {
                     MessageBox.Show("Registration failed.");
+                }
             }
         }
 
@@ -96,10 +112,6 @@ namespace Bon
             pref.ShowDialog(this);
             this.Close();
         }
-
-        //first project upload
-
-        // uploading project to github
 
         private bool LoginUser(string username, string password)
         {
@@ -127,24 +139,35 @@ namespace Bon
                 lblEmail.Visible = false;
                 txtEmail.Visible = false;
 
-                lblPassword.Location = new Point(50, 190);
-                txtPassword.Location = new Point(50, 210);
-                btnContinue.Location = new Point(50, 260);
-                linkSwitch.Location = new Point(90, 320);
+                lblUsername.Location = new Point(50, 130);
+                txtUsername.Location = new Point(50, 155);
+                lblPassword.Location = new Point(50, 195);
+                txtPassword.Location = new Point(50, 220);
+                btnContinue.Location = new Point(50, 270);
+                linkSwitch.Location = new Point(90, 330);
             }
             else
             {
                 lblEmail.Visible = true;
                 txtEmail.Visible = true;
 
-                lblPassword.Location = new Point(50, 250);
-                txtPassword.Location = new Point(50, 270);
-                btnContinue.Location = new Point(50, 320);
-                linkSwitch.Location = new Point(90, 380);
+                lblUsername.Location = new Point(50, 130);
+                txtUsername.Location = new Point(50, 155);
+                lblEmail.Location = new Point(50, 195);
+                txtEmail.Location = new Point(50, 220);
+                lblPassword.Location = new Point(50, 260);
+                txtPassword.Location = new Point(50, 285);
+                btnContinue.Location = new Point(50, 335);
+                linkSwitch.Location = new Point(90, 395);
             }
         }
 
         private void AuthForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
