@@ -70,7 +70,8 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(50, 150);
+            // moved down a bit so it sits further from the title
+            txtUsername.Location = new Point(50, 160);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(300, 27);
             txtUsername.TabIndex = 3;
@@ -78,7 +79,8 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(50, 190);
+            // moved down to preserve spacing after username textbox
+            lblEmail.Location = new Point(50, 200);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(46, 20);
             lblEmail.TabIndex = 4;
@@ -86,7 +88,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(50, 210);
+            txtEmail.Location = new Point(50, 220);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(300, 27);
             txtEmail.TabIndex = 5;
@@ -94,7 +96,7 @@
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(50, 250);
+            lblPassword.Location = new Point(50, 260);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(70, 20);
             lblPassword.TabIndex = 6;
@@ -102,7 +104,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(50, 270);
+            txtPassword.Location = new Point(50, 280);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(300, 27);
             txtPassword.TabIndex = 7;
@@ -112,7 +114,7 @@
             // 
             btnContinue.FlatStyle = FlatStyle.Flat;
             btnContinue.ForeColor = Color.White;
-            btnContinue.Location = new Point(50, 320);
+            btnContinue.Location = new Point(50, 330);
             btnContinue.Name = "btnContinue";
             btnContinue.Size = new Size(300, 45);
             btnContinue.TabIndex = 8;
@@ -124,7 +126,7 @@
             // linkSwitch
             // 
             linkSwitch.AutoSize = true;
-            linkSwitch.Location = new Point(90, 380);
+            linkSwitch.Location = new Point(90, 390);
             linkSwitch.Name = "linkSwitch";
             linkSwitch.Size = new Size(221, 20);
             linkSwitch.TabIndex = 9;

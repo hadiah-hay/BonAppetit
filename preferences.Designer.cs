@@ -2,7 +2,7 @@
 {
     partial class preferences
     {
-        private System.ComponentModel.IContainer components = null;
+        private System.ComponentModel.IContainer components = null;        
 
         protected override void Dispose(bool disposing)
         {
@@ -24,7 +24,7 @@
             mainFlow.Dock = DockStyle.Fill;
             mainFlow.FlowDirection = FlowDirection.TopDown;
             mainFlow.WrapContents = false;
-            mainFlow.Padding = new Padding(20, 10, 20, 10);
+            mainFlow.Padding = new Padding(20, 20, 20, 20);
             mainFlow.Name = "mainFlow";
 
             // ── TITLE ──
@@ -72,12 +72,14 @@
             labelSaveError.Name = "labelSaveError";
             mainFlow.Controls.Add(labelSaveError);
 
+            // Add Save controls at the end so they appear at the bottom of the flow
             mainFlow.ResumeLayout(false);
 
             // ── FORM ──
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 600);
+            ClientSize = new Size(1000, 800);
+            MinimumSize = new Size(800, 600);
             Controls.Add(mainFlow);
             Name = "preferences";
             Text = "Preferences";
@@ -118,12 +120,14 @@
 
             // Craving panel (hidden by default)
             cravingPanel = new Panel();
-            cravingPanel.AutoSize = true;
+            // Use a fixed, wider panel so the craving options don't get cut off
+            cravingPanel.AutoSize = false;
             cravingPanel.Visible = false;
             cravingPanel.BorderStyle = BorderStyle.FixedSingle;
             cravingPanel.Margin = new Padding(0, 5, 0, 5);
             cravingPanel.Padding = new Padding(10);
-            cravingPanel.MinimumSize = new Size(580, 90);
+            cravingPanel.MinimumSize = new Size(900, 120);
+            cravingPanel.Size = new Size(900, 120);
 
             cravingLabel = new Label();
             cravingLabel.AutoSize = true;
@@ -132,10 +136,11 @@
             cravingLabel.Location = new Point(10, 10);
             cravingPanel.Controls.Add(cravingLabel);
 
-            sw = MakeCravingBtn("Sweet", 10, 50, CravingButtonClick);
-            so = MakeCravingBtn("Sour", 120, 50, CravingButtonClick);
-            sp = MakeCravingBtn("Spicy", 230, 50, CravingButtonClick);
-            sa = MakeCravingBtn("Salty", 340, 50, CravingButtonClick);
+            // place craving buttons with wider spacing to fit larger panel
+            sw = MakeCravingBtn("Sweet", 20, 60, CravingButtonClick);
+            so = MakeCravingBtn("Sour", 160, 60, CravingButtonClick);
+            sp = MakeCravingBtn("Spicy", 300, 60, CravingButtonClick);
+            sa = MakeCravingBtn("Salty", 440, 60, CravingButtonClick);
 
             cravingPanel.Controls.Add(sw); cravingPanel.Controls.Add(so);
             cravingPanel.Controls.Add(sp); cravingPanel.Controls.Add(sa);
@@ -147,7 +152,8 @@
             var btn = new Button();
             btn.Text = text;
             btn.Font = new Font("Microsoft Sans Serif", 8.25F);
-            btn.Size = new Size(90, 30);
+            // Increased size so longer labels (e.g. "Sometimes", "Frequently") fit comfortably
+            btn.Size = new Size(120, 36);
             btn.Margin = new Padding(0, 0, 5, 0);
             btn.UseVisualStyleBackColor = true;
             btn.Click += handler;
@@ -159,7 +165,8 @@
             var btn = new Button();
             btn.Text = text;
             btn.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            btn.Size = new Size(94, 30);
+            // wider buttons for readability
+            btn.Size = new Size(120, 36);
             btn.Location = new Point(x, y);
             btn.UseVisualStyleBackColor = true;
             btn.Click += handler;

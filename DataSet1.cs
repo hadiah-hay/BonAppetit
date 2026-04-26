@@ -25,6 +25,107 @@ namespace Bon
             return tableNames;
         }
 
+        // Insert an answer record from NewForm
+        public static int InsertNewFormAnswer(string connectionString, string username, string question, string answer)
+        {
+            using var connection = new OleDbConnection(connectionString);
+            using var cmd = new OleDbCommand("INSERT INTO [NewFormAnswers] ([Username],[Question],[Answer],[DateAnswered]) VALUES (?,?,?,?)", connection);
+            cmd.Parameters.AddWithValue("@p1", username);
+            cmd.Parameters.AddWithValue("@p2", question);
+            cmd.Parameters.AddWithValue("@p3", answer);
+            cmd.Parameters.AddWithValue("@p4", DateTime.Now);
+            connection.Open();
+            return cmd.ExecuteNonQuery();
+        }
+
+        // Ensure required tables exist in the Access database. Creates missing tables and
+        // seeds the `Foods` table with sample entries if it's empty.
+        public static void EnsureSchemaExists(string connectionString)
+        {
+            try
+            {
+                var existing = GetTableNames(connectionString);
+
+                using var connection = new OleDbConnection(connectionString);
+                connection.Open();
+
+                void Exec(string sql)
+                {
+                    using var cmd = new OleDbCommand(sql, connection);
+                    cmd.ExecuteNonQuery();
+                }
+
+                if (!existing.Exists(t => string.Equals(t, "Users", StringComparison.OrdinalIgnoreCase)))
+                {
+                    Exec("CREATE TABLE [Users] ([Username] TEXT(100) PRIMARY KEY, [email_ID] TEXT(255), [Password] TEXT(255))");
+                }
+
+                if (!existing.Exists(t => string.Equals(t, "Preferences", StringComparison.OrdinalIgnoreCase)))
+                {
+                    Exec("CREATE TABLE [Preferences] ([Username] TEXT(100) PRIMARY KEY, [Happy] TEXT(50), [Sad] TEXT(50), [Angry] TEXT(50), [Stressed] TEXT(50), [Bored] TEXT(50))");
+                }
+
+                if (!existing.Exists(t => string.Equals(t, "Cravings", StringComparison.OrdinalIgnoreCase)))
+                {
+                    Exec("CREATE TABLE [Cravings] ([Username] TEXT(100) PRIMARY KEY, [HappyCraving] TEXT(50), [SadCraving] TEXT(50), [AngryCraving] TEXT(50), [StressedCraving] TEXT(50), [BoredCraving] TEXT(50))");
+                }
+
+                if (!existing.Exists(t => string.Equals(t, "Foods", StringComparison.OrdinalIgnoreCase)))
+                {
+                    Exec("CREATE TABLE [Foods] ([FoodName] TEXT(255), [Category] TEXT(50))");
+                }
+
+                if (!existing.Exists(t => string.Equals(t, "DailyMoods", StringComparison.OrdinalIgnoreCase)))
+                {
+                    Exec("CREATE TABLE [DailyMoods] ([Username] TEXT(100), [Mood] TEXT(50), [DateRecorded] DATETIME)");
+                }
+
+                // Table for answers submitted from the NewForm
+                if (!existing.Exists(t => string.Equals(t, "NewFormAnswers", StringComparison.OrdinalIgnoreCase)))
+                {
+                    // Question and Answer stored as TEXT (255). Use DateRecorded to track when answer was given.
+                    Exec("CREATE TABLE [NewFormAnswers] ([Username] TEXT(100), [Question] TEXT(255), [Answer] MEMO, [DateAnswered] DATETIME)");
+                }
+
+                // Seed Foods if empty
+                using (var chk = new OleDbCommand("SELECT COUNT(*) FROM [Foods]", connection))
+                {
+                    var cnt = Convert.ToInt32(chk.ExecuteScalar());
+                    if (cnt == 0)
+                    {
+                        var foods = new (string Name, string Category)[]
+                        {
+                            ("Gulab Jamun", "sweet"),
+                            ("Chocolate Cake", "sweet"),
+                            ("Halwa", "sweet"),
+                            ("Limes", "sour"),
+                            ("Yogurt", "sour"),
+                            ("Pickles", "sour"),
+                            ("Kimchi", "spicy"),
+                            ("Buffalo Wings", "spicy"),
+                            ("Thai Curry", "spicy"),
+                            ("Pretzels", "salty"),
+                            ("Bacon", "salty"),
+                            ("Chedder Cheez", "salty")
+                        };
+
+                        using var ins = new OleDbCommand("INSERT INTO [Foods] ([FoodName],[Category]) VALUES (?,?)", connection);
+                        foreach (var f in foods)
+                        {
+                            ins.Parameters.Clear();
+                            ins.Parameters.AddWithValue("@p1", f.Name);
+                            ins.Parameters.AddWithValue("@p2", f.Category);
+                            ins.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                // If schema creation fails, don't crash the app — user can fix DB manually.
+            }
+        }
+
         public static DataTable GetUsers(string connectionString)
         {
             var dt = new DataTable();
