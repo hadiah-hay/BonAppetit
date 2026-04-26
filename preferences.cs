@@ -20,8 +20,8 @@ namespace Bon
             try
             {
                 var tables = DataAccess.GetTableNames(_connectionString);
-                if (!tables.Exists(t => string.Equals(t, "Preferences", StringComparison.OrdinalIgnoreCase)))
-                    label1.Text += " (DB table 'Preferences' not found)";
+                //if (!tables.Exists(t => string.Equals(t, "Preferences", StringComparison.OrdinalIgnoreCase)))
+                    //label1.Text += " (DB table 'Preferences' not found)";
             }
             catch (Exception ex) { Debug.WriteLine(ex.Message); }
         }
@@ -33,7 +33,13 @@ namespace Bon
 
         private void preferences_Load(object sender, EventArgs e)
         {
-            // all craving panels hidden on load - FlowLayout handles spacing automatically
+            BuildBlock("Happy", out button1, out button2, out button3, out button4, out button5, out happycraving, out happylabel, out sweet1, out sour1, out spicy1, out salty1, HappyFrequencySelected);
+            BuildBlock("Sad", out button6, out button7, out button8, out button9, out button10, out sadcraving, out sadlabel, out sweet2, out sour2, out spicy2, out salty2, SadFrequencySelected);
+            BuildBlock("Angry", out button11, out button12, out button13, out button14, out button15, out angrypanel, out angrylabel, out sweet3, out sour3, out spicy3, out salty3, AngryFrequencySelected);
+            BuildBlock("Bored", out button16, out button17, out button18, out button19, out button20, out boredpanel, out boredlabel, out sweet4, out sour4, out spicy4, out salty4, BoredFrequencySelected);
+            BuildBlock("Stressed", out button21, out button22, out button23, out button24, out button25, out stressedpanel, out stressedlabel, out sweet5, out sour5, out spicy5, out salty5, StressedFrequencySelected);
+            mainFlow.Controls.Add(buttonSave);
+            mainFlow.Controls.Add(labelSaveError);
             happycraving.Visible = false;
             sadcraving.Visible = false;
             angrypanel.Visible = false;
@@ -131,10 +137,8 @@ namespace Bon
                     _selections.GetValueOrDefault("StressedCraving", ""),
                     _selections.GetValueOrDefault("BoredCraving", ""));
 
-                using var f = new FoodPrefernces(_username);
-                f.ShowDialog(this);
                 this.Close();
-                
+
             }
             catch (Exception ex)
             {
@@ -149,5 +153,10 @@ namespace Bon
             foreach (var b in group) b.BackColor = SystemColors.Control;
             selected.BackColor = Color.LightBlue;
         }
+
+        private void mainFlow_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
-}
+}//preferences.cs

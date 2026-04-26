@@ -24,7 +24,19 @@ namespace Bon
             }
             return tableNames;
         }
-
+        public static void InsertNewFormAnswer(string connectionString, string username, string question, string answer)
+        {
+            using var connection = new OleDbConnection(connectionString);
+            using var cmd = new OleDbCommand(
+                "INSERT INTO [NewFormAnswers] ([Username], [Question], [Answer], [DateAnswered]) VALUES (?, ?, ?, ?)",
+                connection);
+            cmd.Parameters.AddWithValue("@p1", username);
+            cmd.Parameters.AddWithValue("@p2", question);
+            cmd.Parameters.AddWithValue("@p3", answer);
+            cmd.Parameters.AddWithValue("@p4", DateTime.Now);
+            connection.Open();
+            cmd.ExecuteNonQuery();
+        }
         public static DataTable GetUsers(string connectionString)
         {
             var dt = new DataTable();
@@ -231,6 +243,28 @@ namespace Bon
                 cmd.Parameters.AddWithValue("@p6", bored);
                 cmd.ExecuteNonQuery();
             }
+        }
+        public static bool UserHasPreferences(string connectionString, string username)
+        {
+            using var connection = new OleDbConnection(connectionString);
+            using var cmd = new OleDbCommand("SELECT COUNT(*) FROM [Preferences] WHERE [Username] = ?", connection);
+            cmd.Parameters.AddWithValue("@p1", username);
+            connection.Open();
+            return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+        }
+        public static DataTable GetWellnessRecommendation(string connectionString, string category, string answer)
+        {
+            var dt = new DataTable();
+            using var connection = new OleDbConnection(connectionString);
+            using var cmd = new OleDbCommand(
+                "SELECT [Tip], [Food1], [Food2], [Food3] FROM [WellnessRecommendations] WHERE [Category] = ? AND [Answer] = ?",
+                connection);
+            cmd.Parameters.AddWithValue("@p1", category);
+            cmd.Parameters.AddWithValue("@p2", answer);
+            using var adapter = new OleDbDataAdapter(cmd);
+            connection.Open();
+            adapter.Fill(dt);
+            return dt;
         }
     }
 }
