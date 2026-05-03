@@ -31,27 +31,6 @@
             radioButton5 = new RadioButton();
             pnlEmotions = new Panel();
             panel1 = new Panel();
-            pnlSocialCard = new Panel();
-            lblSocialFoods = new Label();
-            lblSocialTip = new Label();
-            lblSocialAnswer = new Label();
-            lblSocialTitle = new Label();
-            pnlDietCard = new Panel();
-            lblDietFoods = new Label();
-            lblDietTip = new Label();
-            lblDietAnswer = new Label();
-            lblDietTitle = new Label();
-            pnlSleepCard = new Panel();
-            lblSleepFoods = new Label();
-            lblSleepTip = new Label();
-            lblSleepAnswer = new Label();
-            lblSleepTitle = new Label();
-            pnlHydrationCard = new Panel();
-            lblHydrationFoods = new Label();
-            lblHydrationTip = new Label();
-            lblHydrationAnswer = new Label();
-            lblHydrationTitle = new Label();
-            lblWellnessTitle = new Label();
             panel2 = new Panel();
             label3 = new Label();
             label4 = new Label();
@@ -95,12 +74,9 @@
             lblEmojiBored = new Label();
             panel6 = new Panel();
             lblTitle = new Label();
+            button1 = new Button();
             pnlEmotions.SuspendLayout();
             panel1.SuspendLayout();
-            pnlSocialCard.SuspendLayout();
-            pnlDietCard.SuspendLayout();
-            pnlSleepCard.SuspendLayout();
-            pnlHydrationCard.SuspendLayout();
             panel2.SuspendLayout();
             pnlFood3.SuspendLayout();
             pnlFood2.SuspendLayout();
@@ -118,10 +94,9 @@
             // radioButton5
             // 
             radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(-373, 205);
-            radioButton5.Margin = new Padding(3, 4, 3, 4);
+            radioButton5.Location = new Point(-326, 154);
             radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(70, 24);
+            radioButton5.Size = new Size(56, 19);
             radioButton5.TabIndex = 10;
             radioButton5.TabStop = true;
             radioButton5.Text = "Sweet";
@@ -134,18 +109,15 @@
             pnlEmotions.Controls.Add(lblTitle);
             pnlEmotions.Dock = DockStyle.Fill;
             pnlEmotions.Location = new Point(0, 0);
+            pnlEmotions.Margin = new Padding(3, 2, 3, 2);
             pnlEmotions.Name = "pnlEmotions";
-            pnlEmotions.Size = new Size(517, 695);
+            pnlEmotions.Size = new Size(424, 489);
             pnlEmotions.TabIndex = 28;
             // 
             // panel1
             // 
             panel1.AutoScroll = true;
-            panel1.Controls.Add(pnlSocialCard);
-            panel1.Controls.Add(pnlDietCard);
-            panel1.Controls.Add(pnlSleepCard);
-            panel1.Controls.Add(pnlHydrationCard);
-            panel1.Controls.Add(lblWellnessTitle);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(pnlFood3);
@@ -157,223 +129,12 @@
             panel1.Controls.Add(btnBack);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(2);
-            panel1.Size = new Size(517, 695);
+            panel1.Size = new Size(424, 489);
             panel1.TabIndex = 2;
             panel1.Visible = false;
-            // 
-            // pnlSocialCard
-            // 
-            pnlSocialCard.BackColor = Color.FromArgb(232, 240, 253);
-            pnlSocialCard.BorderStyle = BorderStyle.FixedSingle;
-            pnlSocialCard.Controls.Add(lblSocialFoods);
-            pnlSocialCard.Controls.Add(lblSocialTip);
-            pnlSocialCard.Controls.Add(lblSocialAnswer);
-            pnlSocialCard.Controls.Add(lblSocialTitle);
-            pnlSocialCard.Location = new Point(249, 818);
-            pnlSocialCard.Name = "pnlSocialCard";
-            pnlSocialCard.Size = new Size(230, 170);
-            pnlSocialCard.TabIndex = 12;
-            // 
-            // lblSocialFoods
-            // 
-            lblSocialFoods.ForeColor = Color.Purple;
-            lblSocialFoods.Location = new Point(8, 100);
-            lblSocialFoods.Name = "lblSocialFoods";
-            lblSocialFoods.Size = new Size(210, 60);
-            lblSocialFoods.TabIndex = 3;
-            lblSocialFoods.Text = "label20";
-            // 
-            // lblSocialTip
-            // 
-            lblSocialTip.Location = new Point(8, 58);
-            lblSocialTip.Name = "lblSocialTip";
-            lblSocialTip.Size = new Size(210, 40);
-            lblSocialTip.TabIndex = 2;
-            lblSocialTip.Text = "label19";
-            // 
-            // lblSocialAnswer
-            // 
-            lblSocialAnswer.AutoSize = true;
-            lblSocialAnswer.ForeColor = SystemColors.ControlDarkDark;
-            lblSocialAnswer.Location = new Point(8, 35);
-            lblSocialAnswer.Name = "lblSocialAnswer";
-            lblSocialAnswer.Size = new Size(58, 20);
-            lblSocialAnswer.TabIndex = 1;
-            lblSocialAnswer.Text = "label18";
-            // 
-            // lblSocialTitle
-            // 
-            lblSocialTitle.AutoSize = true;
-            lblSocialTitle.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSocialTitle.Location = new Point(8, 8);
-            lblSocialTitle.Name = "lblSocialTitle";
-            lblSocialTitle.Size = new Size(69, 23);
-            lblSocialTitle.TabIndex = 0;
-            lblSocialTitle.Text = "label17";
-            // 
-            // pnlDietCard
-            // 
-            pnlDietCard.BackColor = Color.FromArgb(232, 253, 240);
-            pnlDietCard.BorderStyle = BorderStyle.FixedSingle;
-            pnlDietCard.Controls.Add(lblDietFoods);
-            pnlDietCard.Controls.Add(lblDietTip);
-            pnlDietCard.Controls.Add(lblDietAnswer);
-            pnlDietCard.Controls.Add(lblDietTitle);
-            pnlDietCard.Location = new Point(9, 817);
-            pnlDietCard.Name = "pnlDietCard";
-            pnlDietCard.Size = new Size(230, 170);
-            pnlDietCard.TabIndex = 11;
-            // 
-            // lblDietFoods
-            // 
-            lblDietFoods.ForeColor = Color.Purple;
-            lblDietFoods.Location = new Point(8, 100);
-            lblDietFoods.Name = "lblDietFoods";
-            lblDietFoods.Size = new Size(210, 60);
-            lblDietFoods.TabIndex = 3;
-            lblDietFoods.Text = "label16";
-            // 
-            // lblDietTip
-            // 
-            lblDietTip.Location = new Point(8, 58);
-            lblDietTip.Name = "lblDietTip";
-            lblDietTip.Size = new Size(210, 40);
-            lblDietTip.TabIndex = 2;
-            lblDietTip.Text = "label15";
-            // 
-            // lblDietAnswer
-            // 
-            lblDietAnswer.AutoSize = true;
-            lblDietAnswer.ForeColor = SystemColors.ControlDarkDark;
-            lblDietAnswer.Location = new Point(8, 35);
-            lblDietAnswer.Name = "lblDietAnswer";
-            lblDietAnswer.Size = new Size(58, 20);
-            lblDietAnswer.TabIndex = 1;
-            lblDietAnswer.Text = "label14";
-            // 
-            // lblDietTitle
-            // 
-            lblDietTitle.AutoSize = true;
-            lblDietTitle.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDietTitle.Location = new Point(8, 8);
-            lblDietTitle.Name = "lblDietTitle";
-            lblDietTitle.Size = new Size(69, 23);
-            lblDietTitle.TabIndex = 0;
-            lblDietTitle.Text = "label13";
-            // 
-            // pnlSleepCard
-            // 
-            pnlSleepCard.BackColor = Color.FromArgb(243, 232, 253);
-            pnlSleepCard.BorderStyle = BorderStyle.FixedSingle;
-            pnlSleepCard.Controls.Add(lblSleepFoods);
-            pnlSleepCard.Controls.Add(lblSleepTip);
-            pnlSleepCard.Controls.Add(lblSleepAnswer);
-            pnlSleepCard.Controls.Add(lblSleepTitle);
-            pnlSleepCard.Location = new Point(249, 635);
-            pnlSleepCard.Name = "pnlSleepCard";
-            pnlSleepCard.Size = new Size(230, 170);
-            pnlSleepCard.TabIndex = 10;
-            // 
-            // lblSleepFoods
-            // 
-            lblSleepFoods.ForeColor = Color.Purple;
-            lblSleepFoods.Location = new Point(8, 100);
-            lblSleepFoods.Name = "lblSleepFoods";
-            lblSleepFoods.Size = new Size(210, 60);
-            lblSleepFoods.TabIndex = 3;
-            lblSleepFoods.Text = "label12";
-            // 
-            // lblSleepTip
-            // 
-            lblSleepTip.Location = new Point(8, 58);
-            lblSleepTip.Name = "lblSleepTip";
-            lblSleepTip.Size = new Size(210, 40);
-            lblSleepTip.TabIndex = 2;
-            lblSleepTip.Text = "label11";
-            // 
-            // lblSleepAnswer
-            // 
-            lblSleepAnswer.AutoSize = true;
-            lblSleepAnswer.ForeColor = SystemColors.ControlDarkDark;
-            lblSleepAnswer.Location = new Point(8, 35);
-            lblSleepAnswer.Name = "lblSleepAnswer";
-            lblSleepAnswer.Size = new Size(58, 20);
-            lblSleepAnswer.TabIndex = 1;
-            lblSleepAnswer.Text = "label10";
-            // 
-            // lblSleepTitle
-            // 
-            lblSleepTitle.AutoSize = true;
-            lblSleepTitle.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSleepTitle.Location = new Point(8, 8);
-            lblSleepTitle.Name = "lblSleepTitle";
-            lblSleepTitle.Size = new Size(59, 23);
-            lblSleepTitle.TabIndex = 0;
-            lblSleepTitle.Text = "label9";
-            // 
-            // pnlHydrationCard
-            // 
-            pnlHydrationCard.BackColor = Color.FromArgb(232, 245, 253);
-            pnlHydrationCard.BorderStyle = BorderStyle.FixedSingle;
-            pnlHydrationCard.Controls.Add(lblHydrationFoods);
-            pnlHydrationCard.Controls.Add(lblHydrationTip);
-            pnlHydrationCard.Controls.Add(lblHydrationAnswer);
-            pnlHydrationCard.Controls.Add(lblHydrationTitle);
-            pnlHydrationCard.Location = new Point(10, 634);
-            pnlHydrationCard.Name = "pnlHydrationCard";
-            pnlHydrationCard.Size = new Size(230, 170);
-            pnlHydrationCard.TabIndex = 9;
-            // 
-            // lblHydrationFoods
-            // 
-            lblHydrationFoods.ForeColor = Color.Purple;
-            lblHydrationFoods.Location = new Point(8, 100);
-            lblHydrationFoods.Name = "lblHydrationFoods";
-            lblHydrationFoods.Size = new Size(210, 60);
-            lblHydrationFoods.TabIndex = 3;
-            lblHydrationFoods.Text = "label8";
-            // 
-            // lblHydrationTip
-            // 
-            lblHydrationTip.Location = new Point(8, 58);
-            lblHydrationTip.Name = "lblHydrationTip";
-            lblHydrationTip.Size = new Size(210, 40);
-            lblHydrationTip.TabIndex = 2;
-            lblHydrationTip.Text = "label7";
-            // 
-            // lblHydrationAnswer
-            // 
-            lblHydrationAnswer.AutoSize = true;
-            lblHydrationAnswer.ForeColor = SystemColors.ControlDarkDark;
-            lblHydrationAnswer.Location = new Point(8, 35);
-            lblHydrationAnswer.Name = "lblHydrationAnswer";
-            lblHydrationAnswer.Size = new Size(50, 20);
-            lblHydrationAnswer.TabIndex = 1;
-            lblHydrationAnswer.Text = "label6";
-            // 
-            // lblHydrationTitle
-            // 
-            lblHydrationTitle.AutoSize = true;
-            lblHydrationTitle.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblHydrationTitle.Location = new Point(8, 8);
-            lblHydrationTitle.Name = "lblHydrationTitle";
-            lblHydrationTitle.Size = new Size(59, 23);
-            lblHydrationTitle.TabIndex = 0;
-            lblHydrationTitle.Text = "label5";
-            // 
-            // lblWellnessTitle
-            // 
-            lblWellnessTitle.AutoSize = true;
-            lblWellnessTitle.BackColor = Color.FromArgb(128, 0, 200);
-            lblWellnessTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblWellnessTitle.ForeColor = Color.White;
-            lblWellnessTitle.Location = new Point(14, 593);
-            lblWellnessTitle.Name = "lblWellnessTitle";
-            lblWellnessTitle.Size = new Size(268, 31);
-            lblWellnessTitle.TabIndex = 8;
-            lblWellnessTitle.Text = "Today's Wellness Guide";
             // 
             // panel2
             // 
@@ -381,9 +142,10 @@
             panel2.BorderStyle = BorderStyle.FixedSingle;
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label4);
-            panel2.Location = new Point(21, 505);
+            panel2.Location = new Point(18, 379);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(440, 69);
+            panel2.Size = new Size(385, 52);
             panel2.TabIndex = 7;
             panel2.Paint += panel2_Paint;
             // 
@@ -391,9 +153,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label3.Location = new Point(60, 27);
+            label3.Location = new Point(52, 20);
             label3.Name = "label3";
-            label3.Size = new Size(48, 20);
+            label3.Size = new Size(39, 15);
             label3.TabIndex = 1;
             label3.Text = "label3";
             // 
@@ -401,9 +163,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(30, 5);
+            label4.Location = new Point(26, 4);
             label4.Name = "label4";
-            label4.Size = new Size(59, 23);
+            label4.Size = new Size(50, 19);
             label4.TabIndex = 0;
             label4.Text = "label4";
             label4.Click += label4_Click_1;
@@ -414,9 +176,9 @@
             label2.BackColor = Color.FromArgb(128, 0, 200);
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(12, 467);
+            label2.Location = new Point(10, 350);
             label2.Name = "label2";
-            label2.Size = new Size(191, 31);
+            label2.Size = new Size(159, 25);
             label2.TabIndex = 7;
             label2.Text = "Your Personality";
             label2.Click += label2_Click;
@@ -428,9 +190,10 @@
             pnlFood3.Controls.Add(label7);
             pnlFood3.Controls.Add(lblFood3Desc);
             pnlFood3.Controls.Add(lblFood3Name);
-            pnlFood3.Location = new Point(21, 391);
+            pnlFood3.Location = new Point(18, 293);
+            pnlFood3.Margin = new Padding(3, 2, 3, 2);
             pnlFood3.Name = "pnlFood3";
-            pnlFood3.Size = new Size(440, 69);
+            pnlFood3.Size = new Size(385, 52);
             pnlFood3.TabIndex = 6;
             pnlFood3.Paint += pnlFood3_Paint;
             // 
@@ -438,9 +201,9 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(8, 9);
+            label7.Location = new Point(7, 7);
             label7.Name = "label7";
-            label7.Size = new Size(25, 23);
+            label7.Size = new Size(21, 19);
             label7.TabIndex = 4;
             label7.Text = "3.";
             // 
@@ -449,9 +212,9 @@
             lblFood3Desc.AutoSize = true;
             lblFood3Desc.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFood3Desc.ForeColor = Color.Gray;
-            lblFood3Desc.Location = new Point(45, 34);
+            lblFood3Desc.Location = new Point(39, 26);
             lblFood3Desc.Name = "lblFood3Desc";
-            lblFood3Desc.Size = new Size(50, 20);
+            lblFood3Desc.Size = new Size(38, 15);
             lblFood3Desc.TabIndex = 1;
             lblFood3Desc.Text = "label3";
             // 
@@ -459,9 +222,9 @@
             // 
             lblFood3Name.AutoSize = true;
             lblFood3Name.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFood3Name.Location = new Point(37, 11);
+            lblFood3Name.Location = new Point(32, 8);
             lblFood3Name.Name = "lblFood3Name";
-            lblFood3Name.Size = new Size(59, 23);
+            lblFood3Name.Size = new Size(50, 19);
             lblFood3Name.TabIndex = 0;
             lblFood3Name.Text = "label4";
             lblFood3Name.Click += lblFood3Name_Click;
@@ -473,18 +236,19 @@
             pnlFood2.Controls.Add(label6);
             pnlFood2.Controls.Add(lblFood2Desc);
             pnlFood2.Controls.Add(lblFood2Name);
-            pnlFood2.Location = new Point(21, 316);
+            pnlFood2.Location = new Point(18, 237);
+            pnlFood2.Margin = new Padding(3, 2, 3, 2);
             pnlFood2.Name = "pnlFood2";
-            pnlFood2.Size = new Size(440, 69);
+            pnlFood2.Size = new Size(385, 52);
             pnlFood2.TabIndex = 5;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(6, 9);
+            label6.Location = new Point(5, 7);
             label6.Name = "label6";
-            label6.Size = new Size(25, 23);
+            label6.Size = new Size(21, 19);
             label6.TabIndex = 3;
             label6.Text = "2.";
             // 
@@ -492,9 +256,9 @@
             // 
             lblFood2Desc.AutoSize = true;
             lblFood2Desc.ForeColor = Color.Gray;
-            lblFood2Desc.Location = new Point(40, 33);
+            lblFood2Desc.Location = new Point(35, 25);
             lblFood2Desc.Name = "lblFood2Desc";
-            lblFood2Desc.Size = new Size(50, 20);
+            lblFood2Desc.Size = new Size(38, 15);
             lblFood2Desc.TabIndex = 1;
             lblFood2Desc.Text = "label2";
             lblFood2Desc.Click += lblFood2Desc_Click;
@@ -503,9 +267,9 @@
             // 
             lblFood2Name.AutoSize = true;
             lblFood2Name.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFood2Name.Location = new Point(34, 9);
+            lblFood2Name.Location = new Point(30, 7);
             lblFood2Name.Name = "lblFood2Name";
-            lblFood2Name.Size = new Size(59, 23);
+            lblFood2Name.Size = new Size(50, 19);
             lblFood2Name.TabIndex = 0;
             lblFood2Name.Text = "label3";
             lblFood2Name.Click += lblFood2Name_Click;
@@ -517,18 +281,19 @@
             pnlFood1.Controls.Add(label5);
             pnlFood1.Controls.Add(lblFood1Desc);
             pnlFood1.Controls.Add(lblFood1Name);
-            pnlFood1.Location = new Point(21, 241);
+            pnlFood1.Location = new Point(18, 181);
+            pnlFood1.Margin = new Padding(3, 2, 3, 2);
             pnlFood1.Name = "pnlFood1";
-            pnlFood1.Size = new Size(440, 69);
+            pnlFood1.Size = new Size(385, 52);
             pnlFood1.TabIndex = 4;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(7, 9);
+            label5.Location = new Point(6, 7);
             label5.Name = "label5";
-            label5.Size = new Size(25, 23);
+            label5.Size = new Size(21, 19);
             label5.TabIndex = 2;
             label5.Text = "1.";
             // 
@@ -536,9 +301,9 @@
             // 
             lblFood1Desc.AutoSize = true;
             lblFood1Desc.ForeColor = Color.Gray;
-            lblFood1Desc.Location = new Point(43, 31);
+            lblFood1Desc.Location = new Point(38, 23);
             lblFood1Desc.Name = "lblFood1Desc";
-            lblFood1Desc.Size = new Size(50, 20);
+            lblFood1Desc.Size = new Size(38, 15);
             lblFood1Desc.TabIndex = 1;
             lblFood1Desc.Text = "label2";
             // 
@@ -546,9 +311,9 @@
             // 
             lblFood1Name.AutoSize = true;
             lblFood1Name.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFood1Name.Location = new Point(34, 9);
+            lblFood1Name.Location = new Point(30, 7);
             lblFood1Name.Name = "lblFood1Name";
-            lblFood1Name.Size = new Size(59, 23);
+            lblFood1Name.Size = new Size(50, 19);
             lblFood1Name.TabIndex = 0;
             lblFood1Name.Text = "label2";
             // 
@@ -558,9 +323,9 @@
             lblRecommended.BackColor = Color.FromArgb(128, 0, 200);
             lblRecommended.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             lblRecommended.ForeColor = Color.White;
-            lblRecommended.Location = new Point(12, 206);
+            lblRecommended.Location = new Point(10, 154);
             lblRecommended.Name = "lblRecommended";
-            lblRecommended.Size = new Size(160, 31);
+            lblRecommended.Size = new Size(132, 25);
             lblRecommended.TabIndex = 3;
             lblRecommended.Text = "Craving Picks";
             lblRecommended.Click += lblRecommended_Click;
@@ -571,18 +336,19 @@
             pnlEmotionCard.BorderStyle = BorderStyle.FixedSingle;
             pnlEmotionCard.Controls.Add(lblEmotionName);
             pnlEmotionCard.Controls.Add(lblEmotionEmoji);
-            pnlEmotionCard.Location = new Point(21, 133);
+            pnlEmotionCard.Location = new Point(18, 100);
+            pnlEmotionCard.Margin = new Padding(3, 2, 3, 2);
             pnlEmotionCard.Name = "pnlEmotionCard";
-            pnlEmotionCard.Size = new Size(440, 64);
+            pnlEmotionCard.Size = new Size(385, 48);
             pnlEmotionCard.TabIndex = 2;
             // 
             // lblEmotionName
             // 
             lblEmotionName.AutoSize = true;
             lblEmotionName.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEmotionName.Location = new Point(98, 12);
+            lblEmotionName.Location = new Point(86, 9);
             lblEmotionName.Name = "lblEmotionName";
-            lblEmotionName.Size = new Size(79, 31);
+            lblEmotionName.Size = new Size(65, 25);
             lblEmotionName.TabIndex = 1;
             lblEmotionName.Text = "label2";
             lblEmotionName.Click += lblEmotionName_Click;
@@ -591,9 +357,9 @@
             // 
             lblEmotionEmoji.AutoSize = true;
             lblEmotionEmoji.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmotionEmoji.Location = new Point(16, 12);
+            lblEmotionEmoji.Location = new Point(14, 9);
             lblEmotionEmoji.Name = "lblEmotionEmoji";
-            lblEmotionEmoji.Size = new Size(76, 31);
+            lblEmotionEmoji.Size = new Size(63, 25);
             lblEmotionEmoji.TabIndex = 0;
             lblEmotionEmoji.Text = "label2";
             // 
@@ -604,18 +370,19 @@
             pnlHeader.Controls.Add(lblSubtitle);
             pnlHeader.Controls.Add(lblFoodGuide);
             pnlHeader.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            pnlHeader.Location = new Point(0, 45);
+            pnlHeader.Location = new Point(0, 34);
+            pnlHeader.Margin = new Padding(3, 2, 3, 2);
             pnlHeader.Name = "pnlHeader";
-            pnlHeader.Size = new Size(482, 80);
+            pnlHeader.Size = new Size(422, 60);
             pnlHeader.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(0, 48);
+            label1.Location = new Point(0, 36);
             label1.Name = "label1";
-            label1.Size = new Size(222, 23);
+            label1.Size = new Size(182, 19);
             label1.TabIndex = 2;
             label1.Text = "Personalized for your mood";
             label1.Click += label1_Click_1;
@@ -623,9 +390,9 @@
             // lblSubtitle
             // 
             lblSubtitle.AutoSize = true;
-            lblSubtitle.Location = new Point(43, 37);
+            lblSubtitle.Location = new Point(38, 28);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(0, 23);
+            lblSubtitle.Size = new Size(0, 19);
             lblSubtitle.TabIndex = 1;
             // 
             // lblFoodGuide
@@ -633,9 +400,9 @@
             lblFoodGuide.AutoSize = true;
             lblFoodGuide.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblFoodGuide.ForeColor = Color.White;
-            lblFoodGuide.Location = new Point(3, 9);
+            lblFoodGuide.Location = new Point(3, 7);
             lblFoodGuide.Name = "lblFoodGuide";
-            lblFoodGuide.Size = new Size(235, 38);
+            lblFoodGuide.Size = new Size(183, 30);
             lblFoodGuide.TabIndex = 0;
             lblFoodGuide.Text = "Your Food Guide";
             lblFoodGuide.Click += lblFoodGuide_Click;
@@ -644,10 +411,11 @@
             // 
             btnBack.BackColor = Color.Transparent;
             btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(10, 11);
+            btnBack.ForeColor = Color.DimGray;
+            btnBack.Location = new Point(9, 8);
+            btnBack.Margin = new Padding(3, 2, 3, 2);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(80, 29);
+            btnBack.Size = new Size(70, 22);
             btnBack.TabIndex = 0;
             btnBack.Text = "<-- Back";
             btnBack.UseVisualStyleBackColor = false;
@@ -663,13 +431,14 @@
             tlpEmotions.Controls.Add(pnlStressed, 1, 1);
             tlpEmotions.Controls.Add(pnlBored, 0, 2);
             tlpEmotions.Controls.Add(panel6, 1, 2);
-            tlpEmotions.Location = new Point(21, 69);
+            tlpEmotions.Location = new Point(18, 52);
+            tlpEmotions.Margin = new Padding(3, 2, 3, 2);
             tlpEmotions.Name = "tlpEmotions";
             tlpEmotions.RowCount = 3;
             tlpEmotions.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tlpEmotions.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tlpEmotions.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tlpEmotions.Size = new Size(450, 500);
+            tlpEmotions.Size = new Size(394, 375);
             tlpEmotions.TabIndex = 1;
             tlpEmotions.Paint += tlpEmotions_Paint;
             // 
@@ -679,18 +448,19 @@
             pnlHappy.Controls.Add(lblNameHappy);
             pnlHappy.Controls.Add(lblEmojiHappy);
             pnlHappy.Dock = DockStyle.Fill;
-            pnlHappy.Location = new Point(3, 3);
+            pnlHappy.Location = new Point(3, 2);
+            pnlHappy.Margin = new Padding(3, 2, 3, 2);
             pnlHappy.Name = "pnlHappy";
-            pnlHappy.Size = new Size(219, 160);
+            pnlHappy.Size = new Size(191, 121);
             pnlHappy.TabIndex = 0;
             // 
             // lblNameHappy
             // 
             lblNameHappy.AutoSize = true;
             lblNameHappy.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNameHappy.Location = new Point(70, 105);
+            lblNameHappy.Location = new Point(61, 79);
             lblNameHappy.Name = "lblNameHappy";
-            lblNameHappy.Size = new Size(68, 25);
+            lblNameHappy.Size = new Size(54, 20);
             lblNameHappy.TabIndex = 1;
             lblNameHappy.Text = "Happy";
             // 
@@ -698,9 +468,9 @@
             // 
             lblEmojiHappy.AutoSize = true;
             lblEmojiHappy.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmojiHappy.Location = new Point(50, 20);
+            lblEmojiHappy.Location = new Point(44, 15);
             lblEmojiHappy.Name = "lblEmojiHappy";
-            lblEmojiHappy.Size = new Size(117, 81);
+            lblEmojiHappy.Size = new Size(94, 65);
             lblEmojiHappy.TabIndex = 0;
             lblEmojiHappy.Text = "😊";
             lblEmojiHappy.Click += lblEmojiHappy_Click;
@@ -711,18 +481,19 @@
             pnlSad.Controls.Add(lblNameSad);
             pnlSad.Controls.Add(lblEmojiSad);
             pnlSad.Dock = DockStyle.Fill;
-            pnlSad.Location = new Point(228, 3);
+            pnlSad.Location = new Point(200, 2);
+            pnlSad.Margin = new Padding(3, 2, 3, 2);
             pnlSad.Name = "pnlSad";
-            pnlSad.Size = new Size(219, 160);
+            pnlSad.Size = new Size(191, 121);
             pnlSad.TabIndex = 1;
             // 
             // lblNameSad
             // 
             lblNameSad.AutoSize = true;
             lblNameSad.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNameSad.Location = new Point(85, 105);
+            lblNameSad.Location = new Point(74, 79);
             lblNameSad.Name = "lblNameSad";
-            lblNameSad.Size = new Size(43, 25);
+            lblNameSad.Size = new Size(34, 20);
             lblNameSad.TabIndex = 1;
             lblNameSad.Text = "Sad";
             // 
@@ -730,9 +501,9 @@
             // 
             lblEmojiSad.AutoSize = true;
             lblEmojiSad.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmojiSad.Location = new Point(50, 20);
+            lblEmojiSad.Location = new Point(44, 15);
             lblEmojiSad.Name = "lblEmojiSad";
-            lblEmojiSad.Size = new Size(117, 81);
+            lblEmojiSad.Size = new Size(94, 65);
             lblEmojiSad.TabIndex = 0;
             lblEmojiSad.Text = "😢";
             // 
@@ -742,18 +513,19 @@
             pnlAngry.Controls.Add(lblNameAngry);
             pnlAngry.Controls.Add(lblEmojiAngry);
             pnlAngry.Dock = DockStyle.Fill;
-            pnlAngry.Location = new Point(3, 169);
+            pnlAngry.Location = new Point(3, 127);
+            pnlAngry.Margin = new Padding(3, 2, 3, 2);
             pnlAngry.Name = "pnlAngry";
-            pnlAngry.Size = new Size(219, 160);
+            pnlAngry.Size = new Size(191, 121);
             pnlAngry.TabIndex = 2;
             // 
             // lblNameAngry
             // 
             lblNameAngry.AutoSize = true;
             lblNameAngry.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNameAngry.Location = new Point(70, 101);
+            lblNameAngry.Location = new Point(61, 76);
             lblNameAngry.Name = "lblNameAngry";
-            lblNameAngry.Size = new Size(65, 25);
+            lblNameAngry.Size = new Size(53, 20);
             lblNameAngry.TabIndex = 2;
             lblNameAngry.Text = "Angry";
             // 
@@ -761,9 +533,9 @@
             // 
             lblEmojiAngry.AutoSize = true;
             lblEmojiAngry.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmojiAngry.Location = new Point(50, 20);
+            lblEmojiAngry.Location = new Point(44, 15);
             lblEmojiAngry.Name = "lblEmojiAngry";
-            lblEmojiAngry.Size = new Size(117, 81);
+            lblEmojiAngry.Size = new Size(94, 65);
             lblEmojiAngry.TabIndex = 1;
             lblEmojiAngry.Text = "😠";
             // 
@@ -773,18 +545,19 @@
             pnlStressed.Controls.Add(lblEmojiStressed);
             pnlStressed.Controls.Add(lblEmojiStrssed);
             pnlStressed.Dock = DockStyle.Fill;
-            pnlStressed.Location = new Point(228, 169);
+            pnlStressed.Location = new Point(200, 127);
+            pnlStressed.Margin = new Padding(3, 2, 3, 2);
             pnlStressed.Name = "pnlStressed";
-            pnlStressed.Size = new Size(219, 160);
+            pnlStressed.Size = new Size(191, 121);
             pnlStressed.TabIndex = 3;
             // 
             // lblEmojiStressed
             // 
             lblEmojiStressed.AutoSize = true;
             lblEmojiStressed.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblEmojiStressed.Location = new Point(65, 100);
+            lblEmojiStressed.Location = new Point(57, 75);
             lblEmojiStressed.Name = "lblEmojiStressed";
-            lblEmojiStressed.Size = new Size(83, 25);
+            lblEmojiStressed.Size = new Size(68, 20);
             lblEmojiStressed.TabIndex = 3;
             lblEmojiStressed.Text = "Stressed";
             // 
@@ -792,9 +565,9 @@
             // 
             lblEmojiStrssed.AutoSize = true;
             lblEmojiStrssed.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmojiStrssed.Location = new Point(51, 20);
+            lblEmojiStrssed.Location = new Point(45, 15);
             lblEmojiStrssed.Name = "lblEmojiStrssed";
-            lblEmojiStrssed.Size = new Size(117, 81);
+            lblEmojiStrssed.Size = new Size(94, 65);
             lblEmojiStrssed.TabIndex = 2;
             lblEmojiStrssed.Text = "😩";
             // 
@@ -804,18 +577,19 @@
             pnlBored.Controls.Add(lblNameBored);
             pnlBored.Controls.Add(lblEmojiBored);
             pnlBored.Dock = DockStyle.Fill;
-            pnlBored.Location = new Point(3, 335);
+            pnlBored.Location = new Point(3, 252);
+            pnlBored.Margin = new Padding(3, 2, 3, 2);
             pnlBored.Name = "pnlBored";
-            pnlBored.Size = new Size(219, 162);
+            pnlBored.Size = new Size(191, 121);
             pnlBored.TabIndex = 4;
             // 
             // lblNameBored
             // 
             lblNameBored.AutoSize = true;
             lblNameBored.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNameBored.Location = new Point(75, 100);
+            lblNameBored.Location = new Point(66, 75);
             lblNameBored.Name = "lblNameBored";
-            lblNameBored.Size = new Size(63, 25);
+            lblNameBored.Size = new Size(51, 20);
             lblNameBored.TabIndex = 4;
             lblNameBored.Text = "Bored";
             // 
@@ -823,38 +597,52 @@
             // 
             lblEmojiBored.AutoSize = true;
             lblEmojiBored.Font = new Font("Segoe UI", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblEmojiBored.Location = new Point(50, 20);
+            lblEmojiBored.Location = new Point(44, 15);
             lblEmojiBored.Name = "lblEmojiBored";
-            lblEmojiBored.Size = new Size(117, 81);
+            lblEmojiBored.Size = new Size(94, 65);
             lblEmojiBored.TabIndex = 3;
             lblEmojiBored.Text = "😴";
             // 
             // panel6
             // 
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(228, 335);
+            panel6.Location = new Point(200, 252);
+            panel6.Margin = new Padding(3, 2, 3, 2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(219, 162);
+            panel6.Size = new Size(191, 121);
             panel6.TabIndex = 5;
             // 
             // lblTitle
             // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(21, 20);
+            lblTitle.Location = new Point(18, 15);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(351, 41);
+            lblTitle.Size = new Size(285, 32);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "How do you feel today?";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Transparent;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.DimGray;
+            button1.Location = new Point(333, 444);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(70, 22);
+            button1.TabIndex = 8;
+            button1.Text = "Next -->";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // FoodPrefernces
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(517, 695);
+            ClientSize = new Size(424, 489);
             Controls.Add(pnlEmotions);
             Controls.Add(radioButton5);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FoodPrefernces";
             Text = "How do you feel today?";
             Load += FoodPrefernces_Load;
@@ -862,14 +650,6 @@
             pnlEmotions.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            pnlSocialCard.ResumeLayout(false);
-            pnlSocialCard.PerformLayout();
-            pnlDietCard.ResumeLayout(false);
-            pnlDietCard.PerformLayout();
-            pnlSleepCard.ResumeLayout(false);
-            pnlSleepCard.PerformLayout();
-            pnlHydrationCard.ResumeLayout(false);
-            pnlHydrationCard.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             pnlFood3.ResumeLayout(false);
@@ -941,29 +721,9 @@
         private Label label3;
         private Label label4;
         private Label label2;
-        private Panel pnlSleepCard;
-        private Panel pnlHydrationCard;
-        private Label lblWellnessTitle;
-        private Panel pnlDietCard;
-        private Panel pnlSocialCard;
-        private Label lblSocialFoods;
-        private Label lblSocialTip;
-        private Label lblSocialAnswer;
-        private Label lblSocialTitle;
-        private Label lblDietFoods;
-        private Label lblDietTip;
-        private Label lblDietAnswer;
-        private Label lblDietTitle;
-        private Label lblSleepFoods;
-        private Label lblSleepTip;
-        private Label lblSleepAnswer;
-        private Label lblSleepTitle;
-        private Label lblHydrationFoods;
-        private Label lblHydrationTip;
-        private Label lblHydrationAnswer;
-        private Label lblHydrationTitle;
         private Label label7;
         private Label label6;
         private Label label5;
+        private Button button1;
     }
 }

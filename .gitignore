@@ -1,0 +1,82 @@
+# Visual Studio / .NET
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build output
+[Bb]in/
+[Oo]bj/
+build/
+Debug/
+Release/
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Publish
+publish/
+*.Publish.xml
+
+# Rider
+.idea/
+
+# Rider / ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Database files
+Bon.accdb
+*.laccdb
+*.mdf
+*.ldf
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+
+# Test result files
+TestResults/
+
+# others
+*.vspscc
+*.vssscc
+
+# Rider caches
+.idea/
+
+# JetBrains Rider
+/.idea/
+
+# Mac
+*.DS_Store
+
+# Ignore compiled binaries and packages
+*.dll
+*.exe
+*.app
+*.so
+*.dylib
+
+# User secrets
+secrets.json
+
+# Node
+node_modules/
+
+# Allow checking in certain files if needed (uncomment to include)
+# !Bon.accdb
